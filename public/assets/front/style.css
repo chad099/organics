@@ -1,0 +1,69 @@
+@font-face {
+	font-family: DroidSans;
+	src: url(fonts/DroidSans.ttf);
+}
+
+
+*{ margin: 0px; padding:0px;		}
+.center{margin:0 auto;float:none;width:1257px;max-width:94%;}
+.header-wrapper{background-color:white;padding: 33px 0px;;}
+.header-wrapper:after {display: table;content: "";clear: both;}
+.header:after {display: table;content: "";clear: both;}
+body::after {display: table;content: "";clear: both;}
+img {max-width: 100%;height: auto;}
+body {padding-bottom: 242px;}
+.logo{float:left;width:29.33%;}
+.nav-wrapper{float:right;margin-top: 50px;}
+.nav ul{list-style-type:none;}
+.nav ul li{display:inline;}
+.nav ul li a{text-decoration:none;font-family:Myriad Pro Regular;font-size:15px;color:gray;padding: 6px 13px;
+display: inline-block;}
+.nav ul li:last-child a {border-right:none;}
+.center::after {display: table;clear: both;content: "";}
+.page {margin: 0px auto;float: none;width: 1257px;max-width: 94%;}
+.banner:after {display: table;content: "";clear: both;}
+.post-slider{width:100%;}
+.post-pic-left{width:50%;float:left;}
+.post-pic-right{width:50%;float:left;}
+.post-pic-right img{width: 628px; }
+.post-pic-left img{height: 516px;}
+.trending-img1 img {float: left;}
+.trending-img1 {float: left;margin-top: 17px;}
+.trending-img1:after {display: table;content: "";clear: both;}
+.trending-heading {float: left;border-block-end: 2px solid #D8D8D8;padding-bottom: 9px;width: 93%;}
+.left-page {width: 907px; margin-top: 50px;}
+.left-page:after  {display: table;content: "";clear: both;}
+.count-img {display: table;content: "";clear: both;padding-top: 30px;}
+.trending-text {color: #7AB82F;font-size: 21px; line-height: 36px;}
+.trending-button {text-align: center;padding-top: 57px;padding-bottom: 23px;}
+.featured-deals {display: table;content: "";clear: both;padding-top: 50px;}
+.deal {border: 1px solid #DBDBDB;border-radius: 9px;width: 157px;float: left;margin-right: 19px;}
+.website-name{text-align: right;color: rgb(188, 188, 188);padding-right: 10px;font-style: italic;}
+.deal-details {text-align: center;padding: 20px 0px;}
+.deal-price{padding: 20px 10px;border-top: 1px solid #BABABA;}
+.deal-like {padding: 0px 12px;border-top: 1px solid rgb(186, 186, 186);margin-top: 40px;}
+.thumb {float: left;width: 48%;border-right: 1px solid rgb(186, 186, 186);height: 45px;padding-top: 23px;}
+.chat-cloud {float: right;padding-top: 23px;width: 48%;height: 45px;}
+.chat-cloud img{margin-right: 7px;}
+.thumb img {margin-right: 7px;}
+.featured-deals :after{display: table;content: "";clear: both;}
+.right {float: left; margin-left: 44px;margin-top: 94px;}
+form {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
+input{border: none;border-bottom: 1px solid #bababa;padding-bottom: 20px;}
+.name {width: 220px;padding-top: 14px;font-weight: bold;}
+.pwd  {width: 220px;padding-top: 14px;font-weight: bold;}
+.form-button {background: rgb(122, 184, 47) none repeat scroll 0% 0%;color: white;width: 100%;font-size: 16px;padding-top: 15px;padding-bottom: 15px;}
+form label{font-size: 13px;color: rgb(150, 150, 150);}
+.join-button {background: #7AB82F none repeat scroll 0% 0%;color: #FFF;width: 100%;font-size: 16px;padding-top: 24px;padding-bottom: 24px;text-align: center;margin-top: 44px;}
+.join-button a{text-decoration: none;color:white;}
+/*custom*/
+.user-register {
+	margin-left:20%;
+	width:50%;
+}
+
+.input {
+    width: 98%;
+    padding-top: 14px;
+    font-weight: bold;
+}
