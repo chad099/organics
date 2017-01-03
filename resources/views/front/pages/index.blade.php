@@ -181,12 +181,12 @@
 
           </div>
       </div>
-    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
   </div>
 </div>
 <!-------------------------------------------------RIGHT SIDEBAR --------------------------------->
 
-    <div class="right">
+                                                                                                                                                                                                                                                                          <div class="right">
       <img src="/assets/front/images/language.jpg">
         <form action="/login" method="post">
             @include('errors.validation')
@@ -199,7 +199,7 @@
             <input type="submit" value="LOGIN" class="form-button">
         </form>
           <img src="/assets/front/images/ad.jpg"/ style="margin-top:64px;">
-          <p class="join-button"><a href="/register">WANT TO JOIN? SIGN UP</a> </p>
+          <p class="join-button"><a href="/register                                                                                                                     ">WANT TO JOIN? SIGN UP</a> </p>
           <img src="/assets/front/images/ad.jpg"/ style="margin-top:64px;">
           <p><img src="/assets/front/images/article.jpg"/ style="margin-top:64px;"></p>
           <p><img src="/assets/front/images/coupan.jpg"/ style="margin-top:64px;"></p>
