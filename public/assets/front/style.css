@@ -1,6 +1,6 @@
 @font-face {
-	font-family: DroidSans;
-	src: url(fonts/DroidSans.ttf);
+	font-family: DroidSans;  
+	src: url(fonts/DroidSans.ttf);  
 }
 
 
@@ -11,7 +11,10 @@
 .header:after {display: table;content: "";clear: both;}
 body::after {display: table;content: "";clear: both;}
 img {max-width: 100%;height: auto;}
-body {padding-bottom: 242px;}
+body {
+    padding-bottom: 20px;
+    background-color: #F8F8F8 !important;
+}
 .logo{float:left;width:29.33%;}
 .nav-wrapper{float:right;margin-top: 50px;}
 .nav ul{list-style-type:none;}
@@ -23,23 +26,29 @@ display: inline-block;}
 .page {margin: 0px auto;float: none;width: 1257px;max-width: 94%;}
 .banner:after {display: table;content: "";clear: both;}
 .post-slider{width:100%;}
-.post-pic-left{width:50%;float:left;}
-.post-pic-right{width:50%;float:left;}
-.post-pic-right img{width: 628px; }
-.post-pic-left img{height: 516px;}
+
+.post-pic-right img {
+    width: 628px;
+    height: 256px;
+}
+.post-pic-left img{height: 515px;}
 .trending-img1 img {float: left;}
-.trending-img1 {float: left;margin-top: 17px;}
+.trending-img1 {float: left;margin-top: 18px;}
 .trending-img1:after {display: table;content: "";clear: both;}
 .trending-heading {float: left;border-block-end: 2px solid #D8D8D8;padding-bottom: 9px;width: 93%;}
-.left-page {width: 907px; margin-top: 50px;}
-.left-page:after  {display: table;content: "";clear: both;}
+.left-page {margin-top: 50px;}
+/*.left-page:after  {display: table;content: "";clear: both;} */
 .count-img {display: table;content: "";clear: both;padding-top: 30px;}
-.trending-text {color: #7AB82F;font-size: 21px; line-height: 36px;}
+.trending-text {color: #7AB82F;font-size: 18px; line-height: 36px;}
 .trending-button {text-align: center;padding-top: 57px;padding-bottom: 23px;}
 .featured-deals {display: table;content: "";clear: both;padding-top: 50px;}
-.deal {border: 1px solid #DBDBDB;border-radius: 9px;width: 157px;float: left;margin-right: 19px;}
+.deal {border: 1px solid #DBDBDB;
+border-radius: 9px;
+width: 18%;
+float: left;
+margin-right: 15px;}
 .website-name{text-align: right;color: rgb(188, 188, 188);padding-right: 10px;font-style: italic;}
-.deal-details {text-align: center;padding: 20px 0px;}
+.deal-details {text-align: center;padding: 20px 0px;font-size: 12px;}
 .deal-price{padding: 20px 10px;border-top: 1px solid #BABABA;}
 .deal-like {padding: 0px 12px;border-top: 1px solid rgb(186, 186, 186);margin-top: 40px;}
 .thumb {float: left;width: 48%;border-right: 1px solid rgb(186, 186, 186);height: 45px;padding-top: 23px;}
@@ -47,7 +56,7 @@ display: inline-block;}
 .chat-cloud img{margin-right: 7px;}
 .thumb img {margin-right: 7px;}
 .featured-deals :after{display: table;content: "";clear: both;}
-.right {float: left; margin-left: 44px;margin-top: 94px;}
+.right {margin-top: 94px;padding: 0px 50px;}
 form {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
 input{border: none;border-bottom: 1px solid #bababa;padding-bottom: 20px;}
 .name {width: 220px;padding-top: 14px;font-weight: bold;}
@@ -56,14 +65,254 @@ input{border: none;border-bottom: 1px solid #bababa;padding-bottom: 20px;}
 form label{font-size: 13px;color: rgb(150, 150, 150);}
 .join-button {background: #7AB82F none repeat scroll 0% 0%;color: #FFF;width: 100%;font-size: 16px;padding-top: 24px;padding-bottom: 24px;text-align: center;margin-top: 44px;}
 .join-button a{text-decoration: none;color:white;}
-/*custom*/
-.user-register {
-	margin-left:20%;
-	width:50%;
+.trending-heading h1 {margin: 0px;}
+.col-sm-6.post-pic-left {padding-right: 0px;padding-left: 0px;}
+.col-sm-6.post-pic-right {padding-left: 0px;}
+.footer{margin-top:50px;}
+.dropdown-menu li a:hover {
+    background: #7AB92C none repeat scroll 0% 0% !important;
+    color: white !important;
 }
 
-.input {
-    width: 98%;
-    padding-top: 14px;
+/*************************Menu Dropdown Css *****************************************/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.btn.btn-primary.dropdown-toggle {
+    background: transparent;
+    border: none !important;
+}.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.btn.btn-primary.dropdown-toggle {
+    background: transparent;
+    border: none !important;
+}.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.btn.btn-primary.dropdown-toggle {
+    background: transparent;
+    border: none !important;
+}
+.btn.btn-primary.dropdown-toggle:hover {
+    background: transparent !important;
+}
+
+/************Menu Dropdown Css Ends Her*************************/
+@media screen and (max-width: 767px)  {
+.col-sm-6.post-pic-left {padding-right: 15px !important;padding-left: 15px !important; }
+.col-sm-6.post-pic-right {padding-right: 15px !important;padding-left: 15px !important;  }
+.deal {width: 100% !important;text-align: center;margin-bottom: 30px; }
+.trending-heading {width: auto !important;}
+.count-img {border-bottom: 1px solid gray;}
+.name {width: 100% !important; }
+.pwd {width: 100% !important; }
+.right p {text-align: center;}
+.post-pic-left img {height: auto !important;}
+.post-pic-right img {width: 100% !important;height: auto !important;}
+
+/********** Profile Css****************/
+.profile-wrapper .col-sm-3.left-side-width {
+width: 100% !important; }
+.count-wrapper.col-sm-6.count-wrapper {
+width: 100% !important; }
+.panel.panel-default {
+    text-align: center;
+}
+.profile-page-img img {
+    float: none !important;
+}
+.profile-page-img {
+border-top: 1px solid rgb(128, 128, 128);
+margin-top: 10px}
+.trending-text {
+        width: 100%;
+    float: left;
+}
+.profile-wrapper .col-sm-9.right-side-width {
+    width: 100% !important;
+}
+.profile-overview {
+    margin-bottom: 20px;
+    float: none !important;
+}
+}
+
+@media screen and (min-width:768px) and (max-width: 980px) {
+.post-pic-right img {width: 628px;height: 147px;}
+.post-pic-left img{height: 298px;}
+.count-img {
+border-bottom: 1px solid gray;}
+.right {margin-top: 94px;padding: 0px 20px !important;}
+.name {width: 120px !important; }
+.pwd{    width: 120px !important; }
+.form-button {font-size: 12px !important;}
+.join-button {font-size: 13px !important;}
+.deal {width: 17% !important;height: 470px;}
+.trending-heading {width: auto !important;}
+}
+@media screen and (min-width:981px) and (max-width: 1280px) {
+.post-pic-right img {width: 628px;height: 207px;}
+.post-pic-left img{height: 418px;}
+.right {margin-top: 94px;padding: 0px 20px !important;}
+.name {width: 170px !important; }
+.pwd{    width: 170px !important; }
+.form-button {font-size: 12px !important;}
+.join-button {font-size: 13px !important;}
+.deal {width: 17% !important;height: 470px;}
+.trending-heading {width: auto !important;}
+}
+
+/********** Profile Css****************/
+
+.col-sm-3.left-side-width {
+    width: 15% !important;
+    padding-left: 0px;
+}
+.col-sm-9.right-side-width {
+    width: 85% !important;
+}
+.nav.nav-pills.nav-stacked.nav-email.shadow.mb-20 {
+    text-align: right;
+}
+.profile-wrapper {background: #f8f8f8;padding: 0px 20px;}
+.count-wrapper.col-sm-6.count-wrapper {
+    width: 40%;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.Load-more{background: rgb(122, 184, 47) none repeat scroll 0% 0%;
+color: white;
+padding: 10px 20px;
+font-weight: bold;
+border-radius: 5px;margin: 50px 0px;}
+.Load-more-margin {margin: 50px 0px;}
+.user-title {
+    font-size: 24px;
     font-weight: bold;
+	margin: 0px 22px;
+}
+.panel-default {
+        padding: 70px 20px;
+}
+.profile-page-img{padding-top: 30px;}
+.profile-overview{margin-bottom: 20px;float: right;}
+
+/*----------------Registration Page-----------------*/
+
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }

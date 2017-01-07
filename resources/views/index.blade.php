@@ -5,5 +5,7 @@
     @include('front.pages.index')
   @elseif($page == 'register')
     @include('front.pages.register')
+  @elseif($page == 'profile')
+    @include('front.pages.profile')
   @endif
 @endsection

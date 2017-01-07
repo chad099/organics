@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class ProfileController extends Controller
 {
-    /**``
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function index()
     {
         $data = [];
-        $data['page'] = 'index';
+        $data['page'] = 'profile';
         return view('index', $data);
     }
 

@@ -17,6 +17,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::group(['prefix'=>''], function() {
     Route::resource('/', 'IndexController');
+    Route::resource('profile', 'ProfileController');
 });
 
 Route::group(['prefix'=>'admin'], function(){
