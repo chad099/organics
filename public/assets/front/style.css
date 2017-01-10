@@ -13,8 +13,7 @@ body::after {display: table;content: "";clear: both;}
 img {max-width: 100%;height: auto;}
 body {
     padding-bottom: 20px;
-    background-color: #F8F8F8 !important;
-}
+    }
 .logo{float:left;width:29.33%;}
 .nav-wrapper{float:right;margin-top: 50px;}
 .nav ul{list-style-type:none;}
@@ -73,6 +72,7 @@ form label{font-size: 13px;color: rgb(150, 150, 150);}
     background: #7AB92C none repeat scroll 0% 0% !important;
     color: white !important;
 }
+.icon-image{margin-right: 20px;}
 
 /*************************Menu Dropdown Css *****************************************/
 .dropbtn {
@@ -316,3 +316,22 @@ border-radius: 5px;margin: 50px 0px;}
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
+
+
+/*****************************Internal Page *************************/
+.heading {
+    float: left;
+    margin-top: 0px;
+}
+.sub-heading {
+    float: right;
+}
+.next-image{padding-top: 70px;
+vertical-align: top;
+margin-left: 30px;}
+.see-deal{background: #7AB82F none repeat scroll 0% 0%;
+color: #FFF;
+padding: 10px 20px;
+font-weight: bold;
+border-radius: 19px;
+margin: 50px 0px;}

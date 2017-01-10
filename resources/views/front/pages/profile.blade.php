@@ -1,6 +1,7 @@
 <div class="row" style="background: #F8F8F8 none repeat scroll 0% 0%;padding: 35px 20px;">
   <div class="container">
     <div class="col-sm-12 left-side-width"><img src="/assets/front/images/user-icon.png"/> <span class="user-title">{{ Auth::user()->display_name}}</span> <img src="/assets/front/images/apprentice.png"/></div>
+
   </div>
 </div>
 <div class="profile-wrapper">
@@ -26,8 +27,8 @@
 											<div class="col-sm-6">
 													<div class="row">
 														<div class="col-sm-9" style="padding-left: 0px;">
-															<p style="margin-bottom: 20px;"><strong>Joined:</strong> <span class="profile-overview"> February 4,2011</span>  </p>
-															<p style="margin-bottom: 20px;"><strong>Last Activity:</strong><span class="profile-overview"> A moment ago</span> </p>
+															<p style="margin-bottom: 20px;"><strong>Joined:</strong> <span class="profile-overview"> {{ date('F j, Y', strtotime(Auth::user()->created_at))  }}</span>  </p>
+															<p style="margin-bottom: 20px;"><strong>Last Activity:</strong><span class="profile-overview"> {{ date('F j, Y', strtotime(Auth::user()->updated_at)) }}</span> </p>
 															<p><strong>Timespent:</strong><span class="profile-overview"> 2w 2d 18h 11m</span></p>
 														</div>
 													</div>
@@ -35,11 +36,11 @@
 											<div class="col-sm-6">
 												<div class="row">
 													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>802</strong></h3>
+														<h3 style="margin: 0px;"><strong>0</strong></h3>
 														<span class="glyphicon glyphicon-star"></span>Reputation Points
 													</div>
 													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>207</strong></h3>
+														<h3 style="margin: 0px;"><strong>0</strong></h3>
 														<span class="glyphicon glyphicon-star"></span>Votes Submitted
 													</div>
 												</div>
@@ -47,11 +48,11 @@
 											<div class="col-sm-6">
 												<div class="row">
 													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>79</strong></h3>
+														<h3 style="margin: 0px;"><strong>0</strong></h3>
 														<span class="glyphicon glyphicon-star"></span>Deals Posted
 													</div>
 													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>335</strong></h3>
+														<h3 style="margin: 0px;"><strong>0</strong></h3>
 														<span class="glyphicon glyphicon-star"></span>Comments Posted
 													</div>
 												</div>

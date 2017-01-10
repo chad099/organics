@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
+use App\User, Auth;
+use Validator, Session, Mail, Redirect;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -60,17 +61,34 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    public function register(Request $request)
     {
-        return User::create([
-            'first_name'=> $data['first_name'],
-            'last_name'=> $data['last_name'],
-            'display_name'=> $data['display_name'],
+
+        $validator = $this->validator($request->all());
+
+        if($validator->fails())
+        {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+        $confirmation_code = $this->generateConfirmationToken();
+        $user =  User::create([
+            'first_name'=> $request->first_name,
+            'last_name'=> $request->last_name,
+            'display_name'=> $request->display_name,
             'name' =>  'sample',
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'role' => 1
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => 1,
+            'confirmation_code'=> $confirmation_code,
         ]);
+        Mail::send('mail.email_verification', ['user'=>$user], function($message) use ($user) {
+            $message->to($user->email, $user->display_name)
+                ->subject('Verify your email address');
+        });
+
+        Session::flash('message', 'Thanks for signing up! Please check your email.');
+
+        return redirect('/');
     }
 
     public function showRegistrationForm ()
@@ -78,5 +96,34 @@ class RegisterController extends Controller
         $data = [];
         $data['page'] = 'register';
         return view('index', $data);
+    }
+
+    public function generateConfirmationToken()
+    {
+      return hash_hmac('sha256', str_random(40), config('app.key'));
+    }
+
+    public function confirm($confirmation_code)
+    {
+        if( ! $confirmation_code)
+        {
+          Session::flash('message', 'Confirmation code is valid.');
+          return redirect('/');
+        }
+
+        $user = User::whereConfirmationCode($confirmation_code)->first();
+
+        if ( ! $user)
+        {
+          Session::flash('message', 'User not found with this confirmation code.');
+          return redirect('/');
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+        Session::flash('message', 'You have successfully verified your account');
+        Auth::loginUsingId($user->id);
+        return redirect('/');
     }
 }

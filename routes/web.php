@@ -24,7 +24,7 @@ Route::group(['prefix'=>'admin'], function(){
   Route::resource('/', 'AdminController');
   Route::resource('users', 'UserManageController');
 });
-
+Route::get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

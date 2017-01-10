@@ -13,6 +13,11 @@
 				<div class="header-wrapper">
 					@include('front.includes.navigation')
 				</div>
+				@if(Session::has('message'))
+				<div class="alert alert-success">
+						{{ Session::get('message') }}
+				</div>
+				@endif
 	       @yield('content')
 				 <div class="row footer">
 				   <div class="container"> <center style="color: rgb(152, 152, 152);">&#xA9; Copyright Organics.org<center></div>

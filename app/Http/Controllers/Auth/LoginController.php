@@ -58,8 +58,15 @@ class LoginController extends Controller
   		if(Auth::attempt($user)) {
   				if(Auth::user()->role == 0)
   					return redirect()->intended('/admin');
-  				else
-  					return redirect()->intended('/');
+  				else {
+            if(!Auth::user()->confirmed) {
+                Auth::logout();
+                Session::flash('message', 'Please check your email for verify account.');
+            }
+
+              return redirect()->intended('/');
+          }
+
   			} else {
   					Session::flash('loginError', 'User not found');
   					return Redirect::back();
