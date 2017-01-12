@@ -7,5 +7,7 @@
     @include('front.pages.register')
   @elseif($page == 'profile')
     @include('front.pages.profile')
+  @elseif($page == 'create_post')
+    @include('front.pages.create_post')
   @endif
 @endsection

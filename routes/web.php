@@ -20,6 +20,10 @@ Route::group(['prefix'=>''], function() {
     Route::resource('profile', 'ProfileController');
 });
 
+Route::group(['prefix'=>''], function(){
+  Route::resource('posts', 'PostController');
+});
+
 Route::group(['prefix'=>'admin'], function(){
   Route::resource('/', 'AdminController');
   Route::resource('users', 'UserManageController');

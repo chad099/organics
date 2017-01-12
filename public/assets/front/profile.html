@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,144 +16,155 @@
 						<div class="header">
 							<div class="logo">
 								<img src="images/logo.jpg">
-							</div>	
-								<div class="nav-wrapper">
-									<div class="nav">
-										<ul>
-											<li><a href="#">HOME</a></li>
-											<li><a href="#">BLOG</a></li>
-											<li><a href="#">CONTACT</a></li>
-											<li><a href="#"><img src="images/search.png" style="width: 15px;"></a></li>
-											<li class="dropdown"><img class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" src="images/profile-menu.png">
-												<span class="caret"></span></img>
-												<ul class="dropdown-menu">
-													<li><a href="#">My Profile</a></li><br>
-													<li><a href="#">New Posts</a></li><br>
-													<li><a href="#">Logout</a></li>
-												</ul>
-											</li>
-										</ul>
+							</div>
+								<nav class="navbar navbar-inverse">
+									<div class="container-fluid">
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>                        
+											</button>
+										</div>
+										<div class="collapse navbar-collapse" id="myNavbar">
+											<ul class="nav navbar-nav navbar-right">
+												<li class="active"><a href="#">HOME</a></li>
+												<li><a href="#">BLOG</a></li>
+												<li><a href="#">CONTACT</a></li>
+												<li><a href="#"><img class="search-icon" src="images/search.png"></a></li>
+												<li class="dropdown">
+														<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+															<img class="menu-user" aria-expanded="true" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" src="images/profile-menu.png"/>
+															<span class="caret"></span>
+														</a>
+													<ul class="dropdown-menu">
+														<li><a href="#">My Profile</a></li><br>
+														<li><a href="#">New Posts</a></li><br>
+														<li><a href="#">Logout</a></li>
+													</ul>
+												</li>
+											</ul>
+										</div>
 									</div>
-								</div>
+								</nav>					
 						</div>
 					</div>
 				</div>
 				
-				<div class="row" style="background: #F8F8F8 none repeat scroll 0% 0%;padding: 35px 20px;">
+				<!-----------------------Profile Html Starts---------------------------->
+				
+				<div class="row profile-bg-wrapper">
 					<div class="container">
 						<div class="col-sm-12 left-side-width"><img src="images/user-icon.png"/> <span class="user-title">Swacker19</span> <img src="images/apprentice.png"/></div>					
 					</div>
 				</div>
 					
-<div class="profile-wrapper">
-	<div class="row">
-		<div class="col-sm-3 left-side-width">
-			<ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
-				<li style="background: white;">
-					<a style="font-weight: bold;color: black;" href="#"><i class="fa fa-envelope-o"></i> Profile Overview</a>
-				</li>
-				<li>
-					<a style="color: rgb(161, 161, 161);" href="#"><i class="fa fa-certificate"></i> Contributions</a>
-				</li>
-			</ul>
-		</div>
-		<div class="col-sm-9 right-side-width">
-			
-			
-			<div class="panel panel-default">
+				<div class="profile-wrapper">
 					<div class="row">
-						<div class="container">
-								<h3 style="margin-bottom: 50px;">Profile Overview</h3>      
-								
+							<div class="col-sm-3 left-side-width">
+								<ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
+									<li class="profile-overview-bg">
+										<a class="left-tab-menu" href="#"><i class="fa fa-envelope-o"></i> Profile Overview</a>
+									</li>
+									<li>
+										<a style="color: rgb(161, 161, 161);" href="#"><i class="fa fa-certificate"></i> Contributions</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-sm-9 right-side-width">
+								<div class="panel panel-default">
 										<div class="row">
-											<div class="col-sm-12">
-											<div class="col-sm-6">
-													<div class="row">
-														<div class="col-sm-9" style="padding-left: 0px;">
-															<p style="margin-bottom: 20px;"><strong>Joined:</strong> <span class="profile-overview"> February 4,2011</span>  </p>
-															<p style="margin-bottom: 20px;"><strong>Last Activity:</strong><span class="profile-overview"> A moment ago</span> </p>
-															<p><strong>Timespent:</strong><span class="profile-overview"> 2w 2d 18h 11m</span></p>
+											<div class="container">
+													<h3 class="profile-overview-wrapper">Profile Overview</h3>      
+														<div class="row">
+															<div class="col-sm-12">
+															<div class="col-sm-6">
+																	<div class="row">
+																		<div class="col-sm-9">
+																			<p class="profile-overview-deatils"><strong>Joined:</strong> <span class="profile-overview"> February 4,2011</span>  </p>
+																			<p class="profile-overview-deatils"><strong>Last Activity:</strong><span class="profile-overview"> A moment ago</span> </p>
+																			<p><strong>Timespent:</strong><span class="profile-overview"> 2w 2d 18h 11m</span></p>
+																		</div>
+																	</div>
+															</div>
+															<div class="col-sm-6">
+																<div class="row">
+																	<div class="col-sm-6 count-wrapper">
+																		<h3 class="no-margin"><strong class="profile-count">802</strong></h3>
+																		<img src="images/STAR.png"/ class="icon-image">Reputation Points
+																	</div>
+																	<div class="col-sm-6 count-wrapper">
+																		<h3 class="no-margin"><strong class="profile-count">207</strong></h3>
+																		<img src="images/thumb.png"/ class="icon-image">Votes Submitted
+																	</div>
+																</div>
+															</div>
+															<div class="col-sm-6">
+																<div class="row">
+																	<div class="col-sm-6 count-wrapper">
+																		<h3 class="no-margin"><strong class="profile-count">79</strong></h3>
+																		<img src="images/token.png"/ class="icon-image">Deals Posted
+																	</div>
+																	<div class="col-sm-6 count-wrapper">
+																		<h3 class="no-margin"><strong class="profile-count">335</strong></h3>
+																		<img src="images/bubble.png"/ class="icon-image">Comments Posted
+																	</div>
+																</div>
+															</div>
+															</div>
 														</div>
-													</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="row">
-													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>802</strong></h3>
-														<img src="images/STAR.png"/ class="icon-image">Reputation Points
-													</div>
-													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>207</strong></h3>
-														<img src="images/thumb.png"/ class="icon-image">Votes Submitted
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="row">
-													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>79</strong></h3>
-														<img src="images/token.png"/ class="icon-image">Deals Posted
-													</div>
-													<div class="col-sm-6 count-wrapper">
-														<h3 style="margin: 0px;"><strong>335</strong></h3>
-														<img src="images/bubble.png"/ class="icon-image">Comments Posted
-													</div>
-												</div>
-											</div>
 											</div>
 										</div>
-						</div>
-						
-					</div>
-				
-			
-			<hr>
-			<div class="row">
-				<div class="container">
-					<h3>Activity</h3>
-					<div class="col-sm-9">
-						<div class="profile-page-img">
-										<img src="images/icon1.png" style="float:left;padding-right: 14px;">
-										<p style="float:left"><strong>swacker19</strong> started a new thread<span style="font-size: 10px;">  </span><span class="trending-text"><br>18- Poence Glasslock Oven Safe Food Storage Set %26 </span></p> 
-						</div>
-					</div>
-					<div class="col-sm-3" style="margin-top: 50px;">
-						<i>2 hours ago</i>
-					</div>	
-					<div class="col-sm-9">
-						<div class="profile-page-img">
-										<img src="images/icon2.png" style="float:left;padding-right: 14px;">
-										<p style="float:left"><strong>swacker19</strong> replied to a thread<span style="font-size: 10px;"> </span><span class="trending-text"><br>Key Bank $300 Checking Bonus w/$500 Direct Deposit 'Select States' </span></p> 
-						</div>
-					</div>
-					<div class="col-sm-3" style="margin-top: 50px;">
-						<i>3 hours ago</i>
-					</div>
-					<div class="col-sm-9">
-						<div class="profile-page-img">
-										<img src="images/icon3.png" style="float:left;padding-right: 14px;">
-										<p style="float:left"><strong>swacker19</strong> started a new thread<span style="font-size: 10px;"></span><span class="trending-text"><br>NEW: Bank of America Cash Rewards $200 Cash Signup Bonus</span></p> 
-						</div>
-					</div>
-					<div class="col-sm-3" style="margin-top: 50px;">
-						<i>2 hours ago</i>
-					</div>
-						<div class="row">
-							<div class="container">
-								<div class="col-sm-12">
-									<p class="Load-more-margin"><a href="#" class="Load-more">LOAD MORE</a></p>
+								<hr>
+								<div class="row">
+									<div class="container">
+										<h3>Activity</h3>
+										<div class="col-sm-9">
+											<div class="profile-page-img">
+															<img src="images/icon1.png" class="profile-page-imgage">
+															<p class="activity-author"><strong>swacker19</strong> started a new thread<span class="trending-text"><br>18- Poence Glasslock Oven Safe Food Storage Set %26 </span></p> 
+											</div>
+										</div>
+										<div class="col-sm-3 gap-section">
+											<i>2 hours ago</i>
+										</div>	
+										<div class="col-sm-9">
+											<div class="profile-page-img">
+															<img src="images/icon2.png" class="profile-page-imgage">
+															<p class="activity-author"><strong>swacker19</strong> replied to a thread<span class="trending-text"><br>Key Bank $300 Checking Bonus w/$500 Direct Deposit 'Select States' </span></p> 
+											</div>
+										</div>
+										<div class="col-sm-3 gap-section">
+											<i>3 hours ago</i>
+										</div>
+										<div class="col-sm-9">
+											<div class="profile-page-img">
+															<img src="images/icon3.png" class="profile-page-imgage">
+															<p class="activity-author"><strong>swacker19</strong> started a new thread<span class="trending-text"><br>NEW: Bank of America Cash Rewards $200 Cash Signup Bonus</span></p> 
+											</div>
+										</div>
+										<div class="col-sm-3 gap-section">
+											<i>2 hours ago</i>
+										</div>
+											<div class="row">
+												<div class="container">
+													<div class="col-sm-12">
+														<p class="Load-more-margin"><a href="#" class="Load-more">LOAD MORE</a></p>
+													</div>
+												</div>
+											</div>
+									</div>
 								</div>
 							</div>
 						</div>
-			</div>
+					</div>
 					
-		</div>
-		</div>
-	</div>
-</div>
-				<div class="row footer">
-							<div class="container"> <center style="color: rgb(152, 152, 152);">&#xA9; Copyright Organics.org<center>
-							</div>
+					
+							<!-------------------------------------------------Footer --------------------------------->			
+									<div class="row footer">
+										<div class="container"> <center class="copyright-text">&#xA9; Copyright Organics.org<center>
+										</div>
+									</div>	
 				</div>	
 		</body>
 </html>

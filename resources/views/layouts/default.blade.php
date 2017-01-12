@@ -23,4 +23,7 @@
 				   <div class="container"> <center style="color: rgb(152, 152, 152);">&#xA9; Copyright Organics.org<center></div>
 				 </div>
   </body>
+
+	<script src="/assets/front/tinymce/tinymce.min.js"></script>
+	<script src="/assets/front/js/general.js"></script>
 </html>

@@ -196,9 +196,9 @@
         <form action="/login" method="post">
             @include('errors.validation')
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="text" name="email" value="USERNAME" class="name">
+            <input type="text" name="email" placeholder="USERNAME" class="name">
             <br>
-            <input type="password" name="password" value="PASSWORD" class="pwd">  <br><br>
+            <input type="password" name="password" placeholder="PASSWORD" class="pwd">  <br><br>
             <label><input id="rememberme" name="rememberme" value="remember" type="checkbox" class="remember"/> &nbsp;REMEMBER ME</label>
             <br><br>
             <input type="submit" value="LOGIN" class="form-button">

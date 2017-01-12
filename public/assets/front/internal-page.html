@@ -17,27 +17,40 @@
 							<div class="logo">
 								<img src="images/logo.jpg">
 							</div>
-								<div class="nav-wrapper">
-									<div class="nav">
-										<ul>
-											<li><a href="#">HOME</a></li>
-											<li><a href="#">BLOG</a></li>
-											<li><a href="#">CONTACT</a></li>
-											<li><a href="#"><img src="images/search.png" style="width: 15px;"></a></li>
-											<li class="dropdown"><img class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" src="images/profile-menu.png">
-												<span class="caret"></span></img>
-												<ul class="dropdown-menu">
-													<li><a href="#">My Profile</a></li><br>
-													<li><a href="#">New Posts</a></li><br>
-													<li><a href="#">Logout</a></li>
-												</ul>
-											</li>
-										</ul>
+								<nav class="navbar navbar-inverse">
+									<div class="container-fluid">
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>                        
+											</button>
+										</div>
+										<div class="collapse navbar-collapse" id="myNavbar">
+											<ul class="nav navbar-nav navbar-right">
+												<li class="active"><a href="#">HOME</a></li>
+												<li><a href="#">BLOG</a></li>
+												<li><a href="#">CONTACT</a></li>
+												<li><a href="#"><img class="search-icon" src="images/search.png"></a></li>
+												<li class="dropdown">
+														<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+															<img class="menu-user" aria-expanded="true" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" src="images/profile-menu.png"/>
+															<span class="caret"></span>
+														</a>
+													<ul class="dropdown-menu">
+														<li><a href="#">My Profile</a></li><br>
+														<li><a href="#">New Posts</a></li><br>
+														<li><a href="#">Logout</a></li>
+													</ul>
+												</li>
+											</ul>
+										</div>
 									</div>
-								</div>
+								</nav>					
 						</div>
 					</div>
 				</div>
+				
 				<div class="center">
 			<div class="row">
 				<div class="col-sm-8">
@@ -50,28 +63,28 @@
 									<div class="row">
 										<div class="col-sm-8">
 											<div class="count-img">
-												<p style="float:left"><span class="trending-text">ThisBest Buy.com </span><span style="font-size:18px;color: rgb(125, 125, 125);">has <b style="color:rgb(93, 93, 93);">ReCore</b> Xbox One Digital Download) on sale for $19.99.</span></br></br>
-													<span style="font-size:18px;color: rgb(125, 125, 125);">Note: A Best Buy account is required. Instructions to redeem are usually emailed within 1 hours.</span></br></br>
-													<span style="font-size:18px;color: rgb(125, 125, 125);">However, if you prefer a physical copy, <span class="trending-text">Best Buy.com</span> has <b style="color:rgb(93, 93, 93);">ReCore w/ Bonus Skin</b> (Xbox One) on sale for $19.99 or less $15.99 for <span class="trending-text">Gamer's Club Unlocked</span> Members. Shipping is free.</span> </br></br>
-													<span style="font-size:18px;color: rgb(125, 125, 125);">Alternatively, <span class="trending-text">Amazon.com</span> also has <b style="color:rgb(93, 93, 93);">ReCore</b> (Xbox One) on sale for <b style="color:rgb(93, 93, 93);">$19.99</b>. Shipping is free with Prime or if you spend $49 or more.</span>
+												<p><span class="trending-text">ThisBest Buy.com </span><span class="trending-sub-text">has <b class="highlight-text">ReCore</b> Xbox One Digital Download) on sale for $19.99.</span></br></br>
+													<span class="trending-sub-text">Note: A Best Buy account is required. Instructions to redeem are usually emailed within 1 hours.</span></br></br>
+													<span class="trending-sub-text">However, if you prefer a physical copy, <span class="trending-text">Best Buy.com</span> has <b class="highlight-text">ReCore w/ Bonus Skin</b> (Xbox One) on sale for $19.99 or less $15.99 for <span class="trending-text">Gamer's Club Unlocked</span> Members. Shipping is free.</span> </br></br>
+													<span class="trending-sub-text">Alternatively, <span class="trending-text">Amazon.com</span> also has <b class="highlight-text">ReCore</b> (Xbox One) on sale for <b class="highlight-text">$19.99</b>. Shipping is free with Prime or if you spend $49 or more.</span>
 												</p> 
 											</div>
 										</div>	
-										<div class="col-sm-4">
-											<img style="padding-top: 30px;" src="images/recore.jpg"/><img class="next-image" src="images/next-image.png"/>
+										<div class="col-sm-4 responsive-class">
+											<img class="xbox-image" src="images/recore.jpg"/><img class="next-image" src="images/next-image.png"/>
 										</div>
 									</div>
 									</br>
 									</br>
 									</br>
-									<div class="row">
-										<div class="col-sm-4">
+									<div class="row responsive-class">
+										<div class="col-sm-4 empty-height">
 											<a href="#" class="see-deal">SEE DEAL</a>
 										</div>
-										<div class="col-sm-4">
-											<span style="font-size: 10px;color: rgb(131, 131, 131);">If you purchase something through a post on our site, Organics may get a small share of the sale.</span>
+										<div class="col-sm-4 empty-height">
+											<span class="small-text">If you purchase something through a post on our site, Organics may get a small share of the sale.</span>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-4 empty-height">
 											<img src="images/social-icon.png"/>
 										</div>
 									</div>
@@ -79,96 +92,96 @@
 									<hr>
 									</br>
 									</br>
-									<div class="row">
-										<div class="col-sm-3">
-											<img style="width: 37px;" src="images/like.png"/><img style="margin-left: 10px;width: 120px;" src="images/dislike.png"/>
+									<div class="row responsive-class">
+										<div class="col-sm-3 empty-height">
+											<img class="like-image" src="images/like.png"/><img class="dislike-image" src="images/dislike.png"/>
 										</div>
-										<div class="col-sm-3">
-											<img src="images/eye.png"/><span style="font-size:10px;margin-left: 10px;">30,732 Views</span> </br>
-											<img src="images/comments.jpg"/><span style="font-size:10px;margin-left: 10px;">64 Comments</span>
+										<div class="col-sm-3 empty-height">
+											<img src="images/eye.png"/><span class="small-text2">30,732 Views</span> </br>
+											<img src="images/comments.jpg"/><span class="small-text2">64 Comments</span>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-3 empty-height">
 											<img src="images/expired-deal.png"/>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-3 empty-height">
 											<img src="images/see-deal-2.png"/>
 										</div>
 									</div>
 									</br>
 									<hr>
-									<span style="font-size: 24px;font-weight: bold;">About the OP	</span></br></br></br></br>
-									<div class="row">
-										<div class="col-sm-3">
-											<img style="float: left;"src="images/user-icon.png"> <span style="font-size: 16px;font-weight: bold;margin-left:15px;">dealdiver</span></br>
-											<span style="font-size:10px;margin-left:15px;">Joined Apr 2009</span>
+									<span class="heading3">About the OP	</span></br></br></br></br>
+									<div class="row responsive-class">
+										<div class="col-sm-3 empty-height">
+											<img class="op-icon" src="images/user-icon.png"> <span class="heading4">dealdiver</span></br>
+											<span class="small-text2">Joined Apr 2009</span>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-3 empty-height">
 											<img src="images/apprentice.png">
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-3 empty-height">
 											<img src="images/STAR.png" class="icon-image"><b>802</b> Reputation Points</br>
 											<img src="images/token.png" class="icon-image"><b>79</b>  Deals Posted
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-3 empty-height">
 											<img src="images/thumb.png" class="icon-image"><b>207 </b> Votes Submitted</br>
 											<img src="images/bubble.png" class="icon-image"><b>335</b> Comments Posted
 										</div>
 									</div>
 									</br></br></br></br>
 									<hr>
-									<span style="font-size: 24px;font-weight: bold;">64 comments</span></br></br></br></br>
+									<span class="heading3">64 comments</span></br></br></br></br>
 									<div class="row">
 										<div class="col-sm-9">
-											<p style="float: left;"><img style="" src="images/user-icon.png"> </p>
-											<p style="margin-left: 80px;"><span style="font-size: 16px;font-weight: bold;">BlackFryday</span><br>
-											<span style="font-size:10px;">Yesterday at 03:39 AM</span><br><br>
+											<p class="user-icon"><img src="images/user-icon.png"> </p>
+											<p class="space-left"><span class="comments-user-title">BlackFryday</span><br>
+											<span class="date">Yesterday at 03:39 AM</span><br><br>
 											<span style="">If you want your son to be able to kill everyone and everything then I say YES.</span></p>
 										</div>
-										<div class="col-sm-3" style="text-align: right;">
-											<img src="images/reply.png"><span style="font-size:10px;margin-left:15px;">Reply to Comment</span>
+										<div class="col-sm-3 reply-comment-position">
+											<img src="images/reply.png"><span class="reply-comment">Reply to Comment</span>
 										</div>
 									</div>
 									<hr>
 									<div class="row">	
 										<div class="col-sm-9">
-											<p style="float: left;"><img style="" src="images/user-icon.png"> </p>
-											<p style="margin-left: 80px;"><span style="font-size: 16px;font-weight: bold;">mnlv</span><img style="margin-left:5px; "src="images/pro.png"/><br>
-											<span style="font-size:10px;">Yesterday at 03:44 AM</span><br><br>
+											<p class="user-icon"><img src="images/user-icon.png"> </p>
+											<p class="space-left"><span class="comments-user-title">mnlv</span><img style="margin-left:5px; "src="images/pro.png"/><br>
+											<span class="date">Yesterday at 03:44 AM</span><br><br>
 											<span style="">360 version available near me but it is not backward compatible on xbox one and i don't have a 360.</span></p>
 										</div>
-										<div class="col-sm-3" style="text-align: right;">
-											<img src="images/reply.png"><span style="font-size:10px;margin-left:15px;">Reply to Comment</span>
+										<div class="col-sm-3 reply-comment-position">
+											<img src="images/reply.png"><span class="reply-comment">Reply to Comment</span>
 										</div>
 									</div>
 									<hr>
 									<div class="row">	
 										<div class="col-sm-9">
-											<p style="float: left;"><img style="" src="images/user-icon.png"> </p>
-											<p style="margin-left: 80px;"><span style="font-size: 16px;font-weight: bold;">Cipher7</span><br>
-											<span style="font-size:10px;">Yesterday at 04:06 AM</span><br><br>
+											<p class="user-icon"><img src="images/user-icon.png"> </p>
+											<p class="space-left"><span class="comments-user-title">Cipher7</span><br>
+											<span class="date">Yesterday at 04:06 AM</span><br><br>
 											<span style="">PC not working?	</span></p>
 										</div>
-										<div class="col-sm-3" style="text-align: right;">
-											<img src="images/reply.png"><span style="font-size:10px;margin-left:15px;">Reply to Comment</span>
+										<div class="col-sm-3 reply-comment-position">
+											<img src="images/reply.png"><span class="reply-comment">Reply to Comment</span>
 										</div>
 									</div>
 									<hr>
 									<div class="row">	
 										<div class="col-sm-9">
-											<p style="float: left;"><img style="" src="images/user-icon.png"> </p>
-											<p style="margin-left: 80px;"><span style="font-size: 16px;font-weight: bold;">kinglet179</span><br>
-											<span style="font-size:10px;">Yesterday at 04:22 AM</span></br>
-											<span style="font-size: 16px;font-weight: bold;">Quote from Cipher7</span><br>
+											<p class="user-icon"><img src="images/user-icon.png"> </p>
+											<p class="space-left"><span class="comments-user-title">kinglet179</span><br>
+											<span class="date">Yesterday at 04:22 AM</span></br>
+											<span class="comments-user-title">Quote from Cipher7</span><br>
 											<span style="">PC not working?</span><br><br>
 											<span style="">Just bought one for PC 10 mins ago. I probably bought the last copy for $19....</span></p>
 										</div>
-										<div class="col-sm-3" style="text-align: right;">
-											<img src="images/reply.png"><span style="font-size:10px;margin-left:15px;">Reply to Comment</span>
+										<div class="col-sm-3 reply-comment-position">
+											<img src="images/reply.png"><span class="reply-comment">Reply to Comment</span>
 										</div>
 									</div>
 									<hr>
 									
-									<div class="row" style="padding-top: 40px;">	
+									<div class="row button-section">	
 										<div class="col-sm-6">
 											<img src="images/buttons.jpg">
 										</div>
@@ -184,7 +197,8 @@
             </div>
                         
 			<!-------------------------------------------------RIGHT SIDEBAR --------------------------------->
-					<div class="col-sm-4">	<div class="right">
+					<div class="col-sm-4">	
+						<div class="right">
 							<p><img src="images/language.jpg"> </p>
 								<form action="">
 										<input type="text" name="firstname" value="USERNAME" class="name">
@@ -194,15 +208,23 @@
 										<br><br>
 										<input type="submit" value="LOGIN" class="form-button">
 								</form> 
-									<p><img src="images/ad.jpg"/ style="margin-top:64px;"></p>
+									<p><img class="sidebar-top-gap" src="images/ad.jpg"/></p>
 									<p class="join-button"><a href="#">WANT TO JOIN? SIGN UP</a> </p>
-									<p><img src="images/ad.jpg"/ style="margin-top:64px;"></p>
-									<p><img src="images/article.jpg"/ style="margin-top:64px;"></p>
-									<p><img src="images/coupan.jpg"/ style="margin-top:64px;"></p>
-									<p style="font-size: 10px;text-align: center;">Terms of Service&nbsp;&nbsp;&nbsp;Site Map&nbsp;&nbsp;&nbsp;    Contact &nbsp;&nbsp;&nbsp;   Privacy Policy</p>
-									<p style="text-align: center;font-size: 13px;margin-top: 7px;color: rgb(152, 152, 152);">&#9400; COPYRIGHT ORGANICS.ORG</p>
-						</div>                        </div>
-                        </div>                        
+									<p><img src="images/ad.jpg"/ class="sidebar-top-gap"></p>
+									<p><img src="images/article.jpg"/ class="sidebar-top-gap"></p>
+									<p><img src="images/coupan.jpg"/ class="sidebar-top-gap"></p>
+									<p class="sidebar-menu"	>Terms of Service&nbsp;&nbsp;&nbsp;Site Map&nbsp;&nbsp;&nbsp;    Contact &nbsp;&nbsp;&nbsp;   Privacy Policy</p>
+									<p class="sidebar-copyright">&#9400; COPYRIGHT ORGANICS.ORG</p>
+						</div>                       
+					</div>
+					
+					<!-------------------------------------------------Footer --------------------------------->	
+					<div class="row footer">
+							<div class="container"> <center class="copyright-text">&#xA9; Copyright Organics.org<center>
+							</div>
+					</div>	
+					
+            </div>                        
 						
 		</div>
 	</body>
