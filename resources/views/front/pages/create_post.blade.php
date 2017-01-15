@@ -13,15 +13,15 @@
               <input type="text" name="title" value="{{ old('title')}}" id="title" class="form-control input-lg" placeholder="Title" tabindex="1">
             </div>
             <div class="form-group">
-              <textarea name="post" id="post"></textarea>
+              <textarea name="post" id="post">{{ old('post')}}</textarea>
             </div>
             <div class="form-group">
               <input type="file" name="thumbnail_image" class="form-control input-lg" placeholder="Title" tabindex="1">
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-md-6"><input type="submit" value="Save" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-            <div class="col-xs-12 col-md-6"><input type="submit" value="Post" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+            <div class="col-xs-12 col-md-6"><input type="submit" value="saved" name="type" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+            <div class="col-xs-12 col-md-6"><input type="submit" value="post" name="type" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
           </div>
         </div>
       </form>

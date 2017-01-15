@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-class IndexController extends Controller
+use App\Comment, Session;
+class AdminCommentController extends Controller
 {
-    /**``
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data = [];
-        $data['page'] = 'index';
-        $data['posts'] = Post::orderBy('created_at', 'DESC')->where('is_approved', 1)->paginate(6);
-        return view('index', $data);
+      $data = [];
+      $data['page'] = 'admin_comments';
+      $data['comments'] = Comment::orderBy('created_at', 'DESC')->paginate(10);
+      return view('admin', $data);
     }
 
     /**
@@ -83,5 +83,37 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approveComment($id)
+    {
+        $comment = Comment::find($id);
+        if($comment)
+        {
+            $comment->moderate = 0;
+            $comment->save();
+            Session::flash('success', 'Comment has been approved successfully.');
+        }
+        else
+        {
+            Session::flash('admin_error_message', 'Something went wrong with comment approval.');
+        }
+        return back();
+    }
+
+    public function UnapproveComment($id)
+    {
+      $comment = Comment::find($id);
+      if($comment)
+      {
+          $comment->moderate = 1;
+          $comment->save();
+          Session::flash('success', 'Comment has been unapproved successfully.');
+      }
+      else
+      {
+          Session::flash('admin_error_message', 'Something went wrong with comment unapproval.');
+      }
+      return back();
     }
 }

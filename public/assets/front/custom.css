@@ -1,0 +1,17 @@
+.thumbnail-image {
+  height:67px;
+  width: 138px;
+}
+.xbox-image {
+  height:330px;
+  width: 209px;
+}
+
+.comment-form {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.replyform{
+  display: none;
+}

@@ -21,41 +21,32 @@
        <div class=""><div>
          <div class="">
            <div class="left-page">
+
              <div class="trending-main-section">
                <div class="trending-img1"><img src="/assets/front/images/trending-icon.jpg"></div>
                <div class="trending-heading"><h1>TRENDING AROUND THE WEB</h1> </div>
              </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/squril.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">This squirrel must be eating the most delicious nut in the world </span><span><i style="font-size: 18px;">(imgur.com)</i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/puppy.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">This pug waiting for his owner at Starbucks this morning </span><span><i style="font-size: 18px;">(i.reddituploads.com) </i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/link.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">Ohio child cancer survivor kills herself over bullying </span><span><i style="font-size: 18px;">(cnn.com)</i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/cheerleader.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">Cheerleader does the entire routine dressed as a dinosaur </span><span><i style="font-size: 18px;">(imgur.com)</i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/link2.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">I'm the Professor and author of The Swoly Bible. #MAS- AMA </span><span><i style="font-size: 18px;">(self.IAmA)</i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
-          <div class="count-img">
-            <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
-            <img src="/assets/front/images/wtf.jpg" style="float:left;padding-right: 14px">
-            <p style="float:left"><span class="trending-text">Cheerleader does the entire routine dressed as a dinosaur </span><span><i style="font-size: 18px;">(imgur.com)</i></span><br>submitted 2 hours ago by <b>ORGANICS</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;"><span style="font-size: 10px;"> 7 <i>COMMENTS</i></span></p>
-          </div>
+             @if(count($posts) > 0)
+              @foreach($posts as $post)
+              <div class="count-img">
+                <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
+                @if($post->thumbnail_image)
+                  <img class="thumbnail-image" src="/assets/post/images/{{$post->thumbnail_image}}" style="float:left;padding-right: 14px">
+                @else
+                 <img src="/assets/front/images/squril.jpg" style="float:left;padding-right: 14px">
+                @endif
+                <p style="float:left">
+                    <a href="/post/{{$post->id}}"><span class="trending-text">{{ $post->title}}</span></a>
+                    <span><i style="font-size: 18px;"></i></span>
+                      <br>submitted at {{ date('F d, Y, l',strtotime($post->created_at)) }} by <b>{{ $post->user->display_name }}</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;">
+                      <span style="font-size: 10px;"> {{ count($post->comments) }} <i>COMMENTS</i></span>
+                </p>
+              </div>
+              @endforeach
+             @endif
+
           <div class="trending-button"><img src="/assets/front/images/buttons.jpg"></div>
+
       </div>
     </div>
 
@@ -191,27 +182,7 @@
 
   <!-------------------------------------------------RIGHT SIDEBAR --------------------------------->
   <div class="col-sm-4">
-    <div class="right">
-      <p><img src="/assets/front/images/language.jpg"> </p>
-        <form action="/login" method="post">
-            @include('errors.validation')
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="text" name="email" placeholder="USERNAME" class="name">
-            <br>
-            <input type="password" name="password" placeholder="PASSWORD" class="pwd">  <br><br>
-            <label><input id="rememberme" name="rememberme" value="remember" type="checkbox" class="remember"/> &nbsp;REMEMBER ME</label>
-            <br><br>
-            <input type="submit" value="LOGIN" class="form-button">
-        </form>
-
-          <p><img src="/assets/front/images/ad.jpg"/ style="margin-top:64px;"></p>
-          <p class="join-button"><a href="/register">WANT TO JOIN? SIGN UP</a> </p>
-          <p><img src="/assets/front/images/ad.jpg"/ style="margin-top:64px;"></p>
-          <p><img src="/assets/front/images/article.jpg"/ style="margin-top:64px;"></p>
-          <p><img src="/assets/front/images/coupan.jpg"/ style="margin-top:64px;"></p>
-          <p style="font-size: 10px;text-align: center;">Terms of Service&nbsp;&nbsp;&nbsp;Site Map&nbsp;&nbsp;&nbsp;    Contact &nbsp;&nbsp;&nbsp;   Privacy Policy</p>
-          <p style="text-align: center;font-size: 13px;margin-top: 7px;color: rgb(152, 152, 152);">&#9400; COPYRIGHT ORGANICS.ORG</p>
-    </div>
+    @include('front.includes.right_sidebar')
   </div>
   </div>
 </div>

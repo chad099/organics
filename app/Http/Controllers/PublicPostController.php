@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post, Session, Validator;
-class PostController extends Controller
+use App\Post, App\Comment, Validator, Session, App\CommentReply;
+class PublicPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = [];
-        $data['page'] = 'admin_post';
-        $data['posts'] = Post::orderBy('created_at', 'DESC')->paginate(10);
-        return view('admin', $data);
+        //
     }
 
     /**
@@ -26,35 +23,56 @@ class PostController extends Controller
      */
     public function create()
     {
-        $data = [];
-        $data['page'] = 'create_post';
-        return view('index', $data);
+        //
     }
 
+    protected function validator(array $data, $rules)
+    {
+        return Validator::make($data, $rules);
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   protected function validator(array $data)
-   {
-       return Validator::make($data, [
-           'title' => 'required',
-           'post' => 'required'
-       ]);
-   }
     public function store(Request $request)
     {
-
-        $validator = $this->validator($request->all());
+        $validator = $this->validator($request->all(), ['comment'=>'required', 'user_id'=>'required']);
 
         if($validator->fails())
         {
-            return Redirect::back()->withInput()->withErrors($validator);
+            return back()->withInput()->withErrors($validator);
         }
-        Post::store($request);
-        Session::flash('message', 'Your post has been submited successfully.');
+
+        if(Comment::store($request))
+        {
+          Session::flash('message', 'Comment has been saved successfully!');
+        }
+        else
+        {
+          Session::flash('error_message', 'Something went wrong!');
+        }
+        return back();
+    }
+
+    public function addReply(Request $request)
+    {
+        $validator = $this->validator($request->all(), ['comment'=>'required', 'user_id'=>'required', 'comment_id'=>'required']);
+
+        if($validator->fails())
+        {
+            return back()->withInput()->withErrors($validator);
+        }
+
+        if(CommentReply::store($request))
+        {
+          Session::flash('message', 'Comment has been saved successfully!');
+        }
+        else
+        {
+          Session::flash('error_message', 'Something went wrong!');
+        }
         return back();
     }
 
@@ -66,7 +84,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [];
+        $data['page'] = 'post';
+        $data['post'] = Post::find($id);
+        return view('two_column', $data);
     }
 
     /**
@@ -101,21 +122,5 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function approvePost($id)
-    {
-      $post = Post::find($id);
-      if($post)
-      {
-          $post->is_approved = 1;
-          $post->save();
-          Session::flash('success', 'Post has been approved successfully.');
-      }
-      else
-      {
-          Session::flash('admin_error_message', 'Something went wrong with approval.');
-      }
-      return back();
     }
 }

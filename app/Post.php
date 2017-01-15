@@ -19,7 +19,20 @@ class Post extends Model
         $request->thumbnail_image->move(public_path('assets/post/images'), $imageName);
         $post->thumbnail_image = $imageName;
       }
+      if($request->type == 'saved') {
+        $post->saved = 1;
+      }
       $post->save();
       return true;
+    }
+
+    public function user()
+    {
+      return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
+    public function comments()
+    {
+      return $this->hasMany('App\Comment', 'post_id', 'id')->where('moderate', 0);
     }
 }

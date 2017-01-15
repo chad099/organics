@@ -24,6 +24,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="/profile">My Profile</a></li><br>
                   <li><a href="#">New Posts</a></li><br>
+                  <li><a href="{{ url('/posts/create')}}">Write a post</a></li><br>
                     <li>
                         <a href="{{ url('/logout') }}"
                         onclick="event.preventDefault();

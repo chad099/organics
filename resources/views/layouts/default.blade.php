@@ -8,6 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="/assets/front/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/assets/front/custom.css" />
 	</head>
 	<body>
 				<div class="header-wrapper">
@@ -20,7 +21,7 @@
 				@endif
 	       @yield('content')
 				 <div class="row footer">
-				   <div class="container"> <center style="color: rgb(152, 152, 152);">&#xA9; Copyright Organics.org<center></div>
+				   @include('front.includes.footer')
 				 </div>
   </body>
 
