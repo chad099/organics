@@ -24,7 +24,7 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i>Post Management<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/posts">Comments</a>
+                        <a href="/admin/posts">Posts</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -33,7 +33,7 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i>Comment Management<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/comments">posts</a>
+                        <a href="/admin/comments">Comments</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
