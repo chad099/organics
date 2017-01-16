@@ -30,30 +30,30 @@
                             <div class="col-sm-9">
                               <p class="profile-overview-deatils"><strong>Joined:</strong> <span class="profile-overview"> {{ date('F j, Y', strtotime(Auth::user()->created_at))  }}</span>  </p>
                               <p class="profile-overview-deatils"><strong>Last Activity:</strong><span class="profile-overview"> {{ date('F j, Y', strtotime(Auth::user()->updated_at))  }}</span> </p>
-                              <p><strong>Timespent:</strong><span class="profile-overview"> 2w 2d 18h 11m</span></p>
+                              <p><strong>Timespent:</strong><span class="profile-overview"> {{ Auth::user()->secondsToTime(strtotime(Auth::user()->created_at), strtotime(Auth::user()->updated_at)) }}</span></p>
                             </div>
                           </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="row">
                           <div class="col-sm-6 count-wrapper">
-                            <h3 class="no-margin"><strong class="profile-count">802</strong></h3>
+                            <h3 class="no-margin"><strong class="profile-count">0</strong></h3>
                             <img src="/assets/front/images/STAR.png"/ class="icon-image">Reputation Points
                           </div>
                           <div class="col-sm-6 count-wrapper">
-                            <h3 class="no-margin"><strong class="profile-count">207</strong></h3>
-                            <img src="/assets/front/images/thumb.png"/ class="icon-image">Votes Submitted
+                            <h3 class="no-margin"><strong class="profile-count">0</strong></h3>
+                            <img src="/assets/front/images/THUMB.png"/ class="icon-image">Votes Submitted
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="row">
                           <div class="col-sm-6 count-wrapper">
-                            <h3 class="no-margin"><strong class="profile-count">79</strong></h3>
+                            <h3 class="no-margin"><strong class="profile-count">0</strong></h3>
                             <img src="/assets/front/images/token.png"/ class="icon-image">Deals Posted
                           </div>
                           <div class="col-sm-6 count-wrapper">
-                            <h3 class="no-margin"><strong class="profile-count">335</strong></h3>
+                            <h3 class="no-margin"><strong class="profile-count">{{ count(Auth::user()->comments) }}</strong></h3>
                             <img src="/assets/front/images/bubble.png"/ class="icon-image">Comments Posted
                           </div>
                         </div>
@@ -66,33 +66,32 @@
         <div class="row">
           <div class="container">
             <h3>Activity</h3>
-            <div class="col-sm-9">
-              <div class="profile-page-img">
-                      <img src="/assets/front/images/icon1.png" class="profile-page-imgage">
-                      <p class="activity-author"><strong>swacker19</strong> started a new thread<span class="trending-text"><br>18- Poence Glasslock Oven Safe Food Storage Set %26 </span></p>
-              </div>
-            </div>
-            <div class="col-sm-3 gap-section">
-              <i>2 hours ago</i>
-            </div>
-            <div class="col-sm-9">
-              <div class="profile-page-img">
-                      <img src="/assets/front/images/icon2.png" class="profile-page-imgage">
-                      <p class="activity-author"><strong>swacker19</strong> replied to a thread<span class="trending-text"><br>Key Bank $300 Checking Bonus w/$500 Direct Deposit 'Select States' </span></p>
-              </div>
-            </div>
-            <div class="col-sm-3 gap-section">
-              <i>3 hours ago</i>
-            </div>
-            <div class="col-sm-9">
-              <div class="profile-page-img">
-                      <img src="/assets/front/images/icon3.png" class="profile-page-imgage">
-                      <p class="activity-author"><strong>swacker19</strong> started a new thread<span class="trending-text"><br>NEW: Bank of America Cash Rewards $200 Cash Signup Bonus</span></p>
-              </div>
-            </div>
-            <div class="col-sm-3 gap-section">
-              <i>2 hours ago</i>
-            </div>
+            @if(count(Auth::user()->posts) > 0)
+              @foreach(Auth::user()->posts as $post)
+                <div class="col-sm-9">
+                  <div class="profile-page-img">
+                          @if($post->id % 2 == 0 )
+                            <img src="/assets/front/images/icon1.png" class="profile-page-imgage"/>
+                            <p class="activity-author"><strong>{{ $post->user->display_name }}</strong> started a new thread
+                              <a href="/post/{{$post->id}}"><span class="trending-text"><br>{{ $post->title }}</span></a>
+                            </p>
+                          @else
+                            <img src="/assets/front/images/icon2.png" class="profile-page-imgage"/>
+                            <p class="activity-author"><strong>{{ $post->user->display_name }}</strong> replied to a thread
+                              <a href="/post/{{$post->id}}">
+                                  <span class="trending-text"><br>{{ $post->title }}
+                                  </span>
+                              </a>
+                            </p>
+                          @endif
+
+                  </div>
+                </div>
+                <div class="col-sm-3 gap-section">
+                  <i>{{ $post->calculateTime(strtoTime($post->created_at)) }} ago</i>
+                </div>
+              @endforeach
+            @endif
               <div class="row">
                 <div class="container">
                   <div class="col-sm-12">

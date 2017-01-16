@@ -46,7 +46,7 @@
         <img class="like-image" src="/assets/front/images/like.png"/><img class="dislike-image" src="/assets/front/images/dislike.png"/>
       </div>
       <div class="col-sm-3 empty-height">
-        <img src="/assets/front/images/eye.png"/><span class="small-text2">30,732 Views</span> </br>
+        <img src="/assets/front/images/eye.png"/><span class="small-text2">{{ $post->views }} Views</span> </br>
         <img src="/assets/front/images/comments.jpg"/><span class="small-text2">{{ count($post->comments) }} Comments</span>
       </div>
       <div class="col-sm-3 empty-height">
@@ -61,19 +61,19 @@
     <span class="heading3">About the OP	</span></br></br></br></br>
     <div class="row responsive-class">
       <div class="col-sm-3 empty-height">
-        <img class="op-icon" src="/assets/front/images/user-icon.png"> <span class="heading4">dealdiver</span></br>
-        <span class="small-text2">Joined Apr 2009</span>
+        <img class="op-icon" src="/assets/front/images/user-icon.png"> <span class="heading4">{{ $post->user->display_name }}</span></br>
+        <span class="small-text2">{{ date('F j, Y', strtotime($post->user->created_at)) }}</span>
       </div>
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/apprentice.png">
       </div>
       <div class="col-sm-3 empty-height">
-        <img src="/assets/front/images/STAR.png" class="icon-image"><b>802</b> Reputation Points</br>
-        <img src="/assets/front/images/token.png" class="icon-image"><b>79</b>  Deals Posted
+        <img src="/assets/front/images/STAR.png" class="icon-image"><b>0</b> Reputation Points</br>
+        <img src="/assets/front/images/token.png" class="icon-image"><b>0</b>  Deals Posted
       </div>
       <div class="col-sm-3 empty-height">
-        <img src="/assets/front/images/THUMB.png" class="icon-image"><b>207 </b> Votes Submitted</br>
-        <img src="/assets/front/images/bubble.png" class="icon-image"><b>335</b> Comments Posted
+        <img src="/assets/front/images/THUMB.png" class="icon-image"><b>0 </b> Votes Submitted</br>
+        <img src="/assets/front/images/bubble.png" class="icon-image"><b>{{ count($post->user->comments)}}</b> Comments Posted
       </div>
     </div>
     </br></br></br></br>

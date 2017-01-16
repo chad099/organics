@@ -87,6 +87,8 @@ class PublicPostController extends Controller
         $data = [];
         $data['page'] = 'post';
         $data['post'] = Post::find($id);
+        $data['post']->views += 1;
+        $data['post']->save();
         return view('two_column', $data);
     }
 

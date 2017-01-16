@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use DateTime;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -42,5 +42,23 @@ class User extends Authenticatable
       $user->role = $request->role;
       $user->save();
       return true;
+    }
+
+    public function comments()
+    {
+      return $this->hasMany('App\Comment', 'user_id', 'id')->where('moderate', 0);
+    }
+
+    public function posts()
+    {
+      return $this->hasMany('App\Post', 'user_id', 'id')->where('is_approved', 1)->orderBy('created_at', 'DESC');
+    }
+
+    public function secondsToTime($created_at, $updated_at) {
+      $then = new DateTime(date('Y-m-d H:i:s', $created_at));
+      $now = new DateTime(date('Y-m-d H:i:s', $updated_at));
+      $diff = $then->diff($now);
+      return $diff->y."y ".$diff->m."m ".$diff->d."d ".$diff->h."h ".$diff->i."m ".$diff->s."s";
+      return array('years' => $diff->y, 'months' => $diff->m, 'days' => $diff->d, 'hours' => $diff->h, 'minutes' => $diff->i, 'seconds' => $diff->s);
     }
 }
