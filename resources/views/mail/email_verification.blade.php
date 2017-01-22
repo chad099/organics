@@ -9,9 +9,10 @@
         <div>
             Thanks for creating an account with the organics.
             Please follow the link below to verify your email address
-            {{ URL::to('register/verify/' . $user->confirmation_code) }}.<br/>
-
+            <a href="{{ URL::to('register/verify/' . $user->confirmation_code) }}">click here</a>.<br/>
         </div>
+        <p>Copy, paste below link intto your browser url area for verify account.</p>
+        <p>{{ URL::to('register/verify/' . $user->confirmation_code) }}</p>
 
     </body>
 </html>

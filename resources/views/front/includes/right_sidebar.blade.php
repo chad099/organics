@@ -1,5 +1,6 @@
 <div class="right">
   <p><img src="/assets/front/images/language.jpg"> </p>
+  @if(!Auth::check())
     <form action="/login" method="post">
         @include('errors.validation')
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -18,4 +19,5 @@
       <p><img src="/assets/front/images/coupan.jpg"/ style="margin-top:64px;"></p>
       <p style="font-size: 10px;text-align: center;">Terms of Service&nbsp;&nbsp;&nbsp;Site Map&nbsp;&nbsp;&nbsp;    Contact &nbsp;&nbsp;&nbsp;   Privacy Policy</p>
       <p style="text-align: center;font-size: 13px;margin-top: 7px;color: rgb(152, 152, 152);">&#9400; COPYRIGHT ORGANICS.ORG</p>
+    @endif
 </div>

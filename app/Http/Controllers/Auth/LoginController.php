@@ -64,7 +64,7 @@ class LoginController extends Controller
                 Session::flash('message', 'Please check your email for verify account.');
             }
 
-              return redirect()->intended('/');
+              return redirect()->intended('/profile');
           }
 
   			} else {
