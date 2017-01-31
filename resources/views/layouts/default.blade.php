@@ -19,6 +19,11 @@
 						{{ Session::get('message') }}
 				</div>
 				@endif
+				@if(Session::has('error_message'))
+				<div class="alert alert-info">
+						{{ Session::get('error_message') }}
+				</div>
+				@endif
 	       @yield('content')
 				 <div class="row footer">
 				   @include('front.includes.footer')

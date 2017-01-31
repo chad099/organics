@@ -61,7 +61,8 @@ class LoginController extends Controller
   				else {
             if(!Auth::user()->confirmed) {
                 Auth::logout();
-                Session::flash('message', 'Please check your email for verify account.');
+                Session::flash('error_message', 'Please check your email for verify account.');
+                return redirect()->intended('/');
             }
 
               return redirect()->intended('/profile');
