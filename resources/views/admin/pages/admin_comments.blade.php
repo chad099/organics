@@ -22,11 +22,17 @@
                         <tr class="gradeU">
                             <td>{{ $comment->post->title }}</td>
                             <td>{{ $comment->user->display_name }}</td>
-                            <td>{{ substr($comment->comment, 100) }}</td>
+                            <td>{{ substr($comment->comment, 0,100) }}</td>
                             @if($comment->moderate)
-                              <td class="center"><a href="/admin/comments/{{ $comment->id }}/approve">Approve</a></td>
+                              <td class="center">
+                                <a href="/admin/comments/{{ $comment->id }}/approve">Approve</a> |
+                                <a href="/admin/comments/{{ $comment->id }}/delete">Delete</a>
+                              </td>
                             @else
-                              <td class="center"><a href="/admin/comments/{{ $comment->id }}/unapprove">Unapprove</a></td>
+                              <td class="center">
+                                <a href="/admin/comments/{{ $comment->id }}/unapprove">Unapprove</a> |
+                                <a href="/admin/comments/{{ $comment->id }}/delete">Delete</a>
+                              </td>
                             @endif
                         </tr>
                       @endforeach

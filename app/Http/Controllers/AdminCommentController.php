@@ -116,4 +116,17 @@ class AdminCommentController extends Controller
       }
       return back();
     }
+
+    public function deleteComment($id)
+    {
+      $comment = Comment::find($id);
+      if($comment)
+      {
+          $comment->delete();
+          Session::flash('success', 'Comment has been deleted successfully.');
+          return back();
+      }
+      Session::flash('admin_error_message', 'Something went wrong.');
+      return back();
+    }
 }

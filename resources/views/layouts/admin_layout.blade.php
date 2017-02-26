@@ -92,11 +92,25 @@
     <script src="/assets/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="/assets/admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
+    <script src="/assets/front/tinymce/tinymce.min.js"></script>
+    <script src="/assets/front/js/general.js"></script>
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
+        });
+
+        //active menu based on url
+        var pathname = window.location.pathname;
+        var murl =  pathname.split('/');
+        $('#side-menu li ul li a').each(function(){
+            if(murl[2]) {
+              if($(this).attr('href').indexOf(murl[2]) !== -1) { 
+                   $(this).parent().parent().addClass('in');
+                   $(this).addClass('active');
+              }
+            }
+
         });
     });
     </script>

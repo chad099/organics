@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use DateTime;
+use DateTime, Hash;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,7 +38,23 @@ class User extends Authenticatable
 
     public static function store($request){
       $user = User::firstOrNew(array('id'=>$request->id));
-      $user->name = $request->name;
+      $user->name = $request->name || "";
+      $user->first_name = $request->first_name;
+      $user->last_name = $request->last_name;
+      $user->display_name = $request->display_name;
+      $user->role = $request->role;
+      $user->save();
+      return true;
+    }
+
+    public static function createUser($request){
+      $user = User::firstOrNew(array('id'=>$request->id));
+      $user->name = $request->name || "";
+      $user->first_name = $request->first_name;
+      $user->last_name = $request->last_name;
+      $user->display_name = $request->display_name;
+      $user->email = $request->email;
+      $user->password = Hash::make('123456');
       $user->role = $request->role;
       $user->save();
       return true;

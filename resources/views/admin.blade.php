@@ -19,5 +19,9 @@
     @include('admin.pages.admin_post')
   @elseif($page == 'admin_comments')
     @include('admin.pages.admin_comments')
+  @elseif($page == 'usercreate')
+    @include('admin.pages.usercreate')
+  @elseif($page == 'admin_post_edit')
+    @include('admin.pages.postedit')
   @endif
 @endsection

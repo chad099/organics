@@ -26,7 +26,10 @@ class UserManageController extends Controller
      */
     public function create()
     {
-        //
+      $data = [];
+      $data['page'] = 'usercreate';
+      $data['roles'] = Role::all();
+      return view('admin', $data);
     }
 
     /**
@@ -37,9 +40,15 @@ class UserManageController extends Controller
      */
     public function store(Request $request)
     {
-        User::store($request);
-        Session::flash('success', 'User has been updated successfully');
-        return back();
+        if($request->has('id') && $request->id) {
+          User::store($request);
+          Session::flash('success', 'User has been updated successfully');
+          return back();
+        }
+        
+        User::createUser($request);
+        Session::flash('success', 'User has been created successfully');
+        return redirect('/admin/users');
     }
 
     /**
@@ -75,9 +84,11 @@ class UserManageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request )
     {
-        //
+      User::store($request);
+      Session::flash('success', 'User has been updated successfully');
+      return back();
     }
 
     /**
@@ -88,6 +99,13 @@ class UserManageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if($user) {
+             $user->delete();
+             Session::flash('success', 'User delete successfully');
+             return back();
+        }
+        Session::flash('error', 'User not found!');
+        return back();
     }
 }

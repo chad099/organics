@@ -42,13 +42,25 @@
     </br>
     </br>
     <div class="row responsive-class">
+
       <div class="col-sm-3 empty-height">
-        <img class="like-image" src="/assets/front/images/like.png"/><img class="dislike-image" src="/assets/front/images/dislike.png"/>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        @if(Auth::check())
+           <a href="javascript:void(0);" class="vote-btn see-deal like-image" data-id = "{{ $post->id }}" data-vote="like">Like</a>
+           <a href="javascript:void(0);" class="vote-btn see-deal dislike-image" data-id = "{{ $post->id }}" data-vote="dislike">Dislike</a>
+        @endif
+        <div class="li-btn">
+        <span class="likecou">likes(<span id="likeShow">{{ count($post->likes) }}</span>)</span>
+        <span class="likecou">dislikes(<span id="likeShow">{{ count($post->dislikes) }}</span>)</span>
+      </div>
+        <!-- <img class="like-image" src="/assets/front/images/like.png"/>
+        <img class="dislike-image" src="/assets/front/images/dislike.png"/> -->
       </div>
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/eye.png"/><span class="small-text2">{{ $post->views }} Views</span> </br>
         <img src="/assets/front/images/comments.jpg"/><span class="small-text2">{{ count($post->comments) }} Comments</span>
       </div>
+
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/expired-deal.png"/>
       </div>

@@ -27,9 +27,13 @@
                         @foreach($posts as $post)
                           @if(!$post->is_approved)
                           <tr class="gradeU">
-                              <td>{{ $post->title }}</td>
+                              <td><a href="/admin/posts/{{ $post->id }}/edit"> {{ $post->title }}</a></td>
                               <td>{{ $post->user->display_name }}</td>
-                              <td class="center"><a href="/admin/posts/{{ $post->id }}/approve">approve</a></td>
+                              <td class="center">
+                               <a href="/admin/posts/{{ $post->id }}/approve">Approve</a> |
+                               <a href="/admin/posts/{{ $post->id }}/delete">Delete</a>
+
+                              </td>
                           </tr>
                           @endif
                         @endforeach

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post, App\Comment, Validator, Session, App\CommentReply;
+use App\Post, App\Comment, Validator, Session, App\CommentReply, App\UserLikeDislike, Auth;
 class PublicPostController extends Controller
 {
     /**
@@ -124,5 +124,25 @@ class PublicPostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postVote(Request $request)
+    {
+
+        $postVote = UserLikeDislike::firstOrNew( array('user_id' => Auth::user()->id, 'post_id' => $request->id));
+        $postVote->like = 0;
+        $postVote->dislike = 0;
+         if($request->vote == 'like')
+         {
+             $postVote->like = 1;
+         }
+         else {
+             $postVote->dislike = 1;
+         }
+        $postVote->user_id = Auth::user()->id;
+        $postVote->post_id = $request->id;
+        $postVote->save();
+        return 'success';
+
     }
 }

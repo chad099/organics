@@ -118,4 +118,24 @@ class PostController extends Controller
       }
       return back();
     }
+
+    public function getPost($id)
+    {
+      $data = [];
+      $data['page'] = 'admin_post_edit';
+      $data['post'] = Post::find($id);
+      return view('admin', $data);
+    }
+    
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+        if($post) {
+            $post->delete();
+            Session::flash('success', 'Post has been deleted successfully.');
+            return redirect('/admin/posts');
+        }
+        Session::flash('admin_error_message', 'Something went wrong.');
+        return back();
+    }
 }

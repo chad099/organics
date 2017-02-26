@@ -1,6 +1,11 @@
 <!-- /.row -->
 <div class="row">
+  <div class="col-sm-2">
+     <a  href="/admin/users/create" class="btn btn-success btn-lg btn-block">Add User</a>
+  </div>
     <div class="col-lg-12">
+
+      <br/>
       @if(count($users) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -20,10 +25,14 @@
                     <tbody>
                       @foreach($users as $user)
                         <tr class="gradeU">
-                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->display_name }}</td>
                             <td>{{ $user->email}}</td>
                             <td>{{ $user->level->name }}</td>
-                            <td class="center"><a href="/admin/users/{{ $user->id }}/edit">Edit</a></td>
+                            <td class="center">
+                              <a href="/admin/users/{{ $user->id }}/edit">Edit</a> |
+                              <a href="/admin/users/{{ $user->id }}/delete">Delete</a>
+                            </td>
+
                         </tr>
                       @endforeach
                     </tbody>

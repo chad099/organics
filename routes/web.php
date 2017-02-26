@@ -22,23 +22,28 @@ Route::group(['prefix'=>''], function() {
 
 Route::group(['prefix'=>''], function() {
   Route::post('commentreply', 'PublicPostController@addReply');
+  Route::post('post/vote', 'PublicPostController@postVote');
   Route::resource('post', 'PublicPostController');
 });
 
 Route::group(['prefix'=>''], function() {
   Route::get('admin/posts', 'PostController@index');
   Route::get('admin/posts/{id}/approve', 'PostController@approvePost');
+  Route::get('admin/posts/{id}/edit', 'PostController@getPost');
+  Route::get('admin/posts/{id}/delete', 'PostController@deletePost');
   Route::resource('posts', 'PostController');
 });
 
 Route::group(['prefix'=>'admin'], function(){
   Route::resource('/', 'AdminController');
+  Route::get('users/{id}/delete', 'UserManageController@destroy');
   Route::resource('users', 'UserManageController');
 });
 
 Route::group(['prefix'=>'admin'], function(){
   Route::get('comments/{id}/approve', 'AdminCommentController@approveComment');
   Route::get('comments/{id}/unapprove', 'AdminCommentController@UnapproveComment');
+  Route::get('comments/{id}/delete', 'AdminCommentController@deleteComment');
   Route::resource('comments', 'AdminCommentController');
 });
 Route::get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');

@@ -58,4 +58,16 @@ class Post extends Model
         }
 
     }
+
+    public function likes()
+    {
+      return $this->hasMany('App\UserLikeDislike', 'post_id', 'id')->where('like', 1);
+    }
+
+    public function dislikes()
+    {
+      return $this->hasMany('App\UserLikeDislike', 'post_id', 'id')->where('dislike', 1);
+    }
+
+
 }
