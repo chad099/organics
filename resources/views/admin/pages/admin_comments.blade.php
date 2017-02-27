@@ -22,16 +22,16 @@
                         <tr class="gradeU">
                             <td>{{ $comment->post->title }}</td>
                             <td>{{ $comment->user->display_name }}</td>
-                            <td>{{ substr($comment->comment, 0,100) }}</td>
+                            <td><a href="/admin/comments/{{ $comment->id }}">{{ substr($comment->comment, 0,100) }}</a></td>
                             @if($comment->moderate)
                               <td class="center">
-                                <a href="/admin/comments/{{ $comment->id }}/approve">Approve</a> |
-                                <a href="/admin/comments/{{ $comment->id }}/delete">Delete</a>
+                                <a href="/admin/comments/{{ $comment->id }}/approve" onclick="return confirm('Are you sure?');">Approve</a> |
+                                <a href="/admin/comments/{{ $comment->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
                               </td>
                             @else
                               <td class="center">
-                                <a href="/admin/comments/{{ $comment->id }}/unapprove">Unapprove</a> |
-                                <a href="/admin/comments/{{ $comment->id }}/delete">Delete</a>
+                                <a href="/admin/comments/{{ $comment->id }}/unapprove" onclick="return confirm('Are you sure?');">Unapprove</a> |
+                                <a href="/admin/comments/{{ $comment->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
                               </td>
                             @endif
                         </tr>

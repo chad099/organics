@@ -6,3 +6,14 @@
   height: 100px;
   width: 100px;
 }
+
+
+.admin-thumbnail-image
+{
+  height:20%;
+  width: 50%;
+}
+
+.replys_action {
+  float: right;
+}

@@ -101,7 +101,7 @@
           <span style="">{{ $comment->comment }}.</span></p>
         </div>
         <div class="col-sm-3 reply-comment-position">
-          <img src="/assets/front/images/reply.png"><span class="reply-comment">Reply to Comment</span>
+          <img src="/assets/front/images/reply.png"><span class="reply-comment"><a href="javascript:void(0);">Reply to Comment</a></span>
         </div>
         <div class="row replyform">
           @if(Auth::check())

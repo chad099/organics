@@ -63,6 +63,10 @@ class LoginController extends Controller
                 Auth::logout();
                 Session::flash('error_message', 'Please check your email for verify account.');
                 return redirect()->intended('/');
+            } else if (Auth::user()->is_blocked) {
+               Auth::logout();
+               Session::flash('error_message', 'your account has been blocked please contact admin.');
+               return redirect()->intended('/');
             }
 
               return redirect()->intended('/profile');

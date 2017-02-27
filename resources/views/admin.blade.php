@@ -23,5 +23,10 @@
     @include('admin.pages.usercreate')
   @elseif($page == 'admin_post_edit')
     @include('admin.pages.postedit')
+  @elseif($page == 'view_post')
+    @include('admin.pages.viewpost')
+
+  @elseif($page == 'admin_comment_replys')
+     @include('admin.pages.admin_comment_replys')    
   @endif
 @endsection

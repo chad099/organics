@@ -30,7 +30,7 @@
                             <td>{{ $user->level->name }}</td>
                             <td class="center">
                               <a href="/admin/users/{{ $user->id }}/edit">Edit</a> |
-                              <a href="/admin/users/{{ $user->id }}/delete">Delete</a>
+                              <a href="/admin/users/{{ $user->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
                             </td>
 
                         </tr>

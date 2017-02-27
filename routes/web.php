@@ -31,6 +31,7 @@ Route::group(['prefix'=>''], function() {
   Route::get('admin/posts/{id}/approve', 'PostController@approvePost');
   Route::get('admin/posts/{id}/edit', 'PostController@getPost');
   Route::get('admin/posts/{id}/delete', 'PostController@deletePost');
+  Route::get('admin/posts/{id}/view', 'PostController@viewPost');
   Route::resource('posts', 'PostController');
 });
 
@@ -44,6 +45,11 @@ Route::group(['prefix'=>'admin'], function(){
   Route::get('comments/{id}/approve', 'AdminCommentController@approveComment');
   Route::get('comments/{id}/unapprove', 'AdminCommentController@UnapproveComment');
   Route::get('comments/{id}/delete', 'AdminCommentController@deleteComment');
+
+  Route::get('reply/{id}/approve', 'AdminCommentController@replyApproveComment');
+  Route::get('reply/{id}/unapprove', 'AdminCommentController@replyUnapproveComment');
+  Route::get('reply/{id}/delete', 'AdminCommentController@replyDeleteComment');
+
   Route::resource('comments', 'AdminCommentController');
 });
 Route::get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');

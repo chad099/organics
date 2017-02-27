@@ -31,7 +31,7 @@
                               <td>{{ $post->user->display_name }}</td>
                               <td class="center">
                                <a href="/admin/posts/{{ $post->id }}/approve">Approve</a> |
-                               <a href="/admin/posts/{{ $post->id }}/delete">Delete</a>
+                               <a href="/admin/posts/{{ $post->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
 
                               </td>
                           </tr>
@@ -72,11 +72,17 @@
                           <tr class="gradeU">
                               <td>{{ $post->title }}</td>
                               <td>{{ $post->user->display_name }}</td>
+                              <td>
+                                <a href="/admin/posts/{{ $post->id }}/view">View</a> |
+                                <a href="/admin/posts/{{ $post->id }}/edit">Edit</a> |
+                                <a href="/admin/posts/{{ $post->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
+                              </td>
+
                               <!-- <td class="center"><a href="/admin/posts/{{ $post->id }}/edit">Edit</a></td> -->
                           </tr>
                           @endif
                         @endforeach
-                        
+
                       </tbody>
                   </table>
               </div>

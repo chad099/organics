@@ -126,7 +126,7 @@ class PostController extends Controller
       $data['post'] = Post::find($id);
       return view('admin', $data);
     }
-    
+
     public function deletePost($id)
     {
         $post = Post::find($id);
@@ -137,5 +137,13 @@ class PostController extends Controller
         }
         Session::flash('admin_error_message', 'Something went wrong.');
         return back();
+    }
+
+    public function viewPost($id)
+    {
+      $data = [];
+      $data['page'] = 'view_post';
+      $data['post'] = Post::find($id);
+      return view('admin', $data);
     }
 }

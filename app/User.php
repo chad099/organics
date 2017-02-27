@@ -43,6 +43,7 @@ class User extends Authenticatable
       $user->last_name = $request->last_name;
       $user->display_name = $request->display_name;
       $user->role = $request->role;
+      $user->is_blocked = ($request->is_blocked == 'on')? 1 : 0;
       $user->save();
       return true;
     }

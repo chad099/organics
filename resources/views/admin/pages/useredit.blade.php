@@ -1,7 +1,7 @@
 <br />
 <div class="col-lg-6">
   <form role="form" action="/admin/users" method="post">
-    <input type="hidden" name="id" value="{{ $user->id }}"/> 
+    <input type="hidden" name="id" value="{{ $user->id }}"/>
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
       <div class="form-group">
           <label>firstName</label>
@@ -27,6 +27,11 @@
               @endforeach
           </select>
       </div>
+
+      <div class="checkbox">
+         <label><input type="checkbox" name="is_blocked" @if($user->is_blocked) checked @endif >Blocked</label>
+      </div>
+
       <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
