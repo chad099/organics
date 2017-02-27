@@ -21,7 +21,7 @@
                       @foreach($comments as $comment)
                         <tr class="gradeU">
                             <td>{{ $comment->post->title }}</td>
-                            <td>{{ $comment->user->display_name }}</td>
+                            <td>{{ ($comment->user)? $comment->user->display_name: 'Unknown' }}</td>
                             <td><a href="/admin/comments/{{ $comment->id }}">{{ substr($comment->comment, 0,100) }}</a></td>
                             @if($comment->moderate)
                               <td class="center">
