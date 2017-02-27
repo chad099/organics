@@ -28,12 +28,12 @@
           <ul class="list-group">
             @if(count($post->comments) >0)
               @foreach( $post->comments as $comment)
-                <li class="list-group-item">Posted by, {{ $comment->user->display_name }}  on {{ date('F j, Y', strtotime($comment->created_at)) }} : {{  $comment->comment  }}
+                <li class="list-group-item">Posted by, {{ ($comment->user)? $comment->user->display_name :'Unknown' }}  on {{ date('F j, Y', strtotime($comment->created_at)) }} : {{  $comment->comment  }}
 
-                  @if(count($comment->replys) >0)
+                  @if(count($comment->replys) > 0)
                   <ul class="list-group">
                     @foreach( $comment->replys as $reply)
-                      <li class="list-group-item">Posted by, {{ $reply->user->display_name }}  on {{ date('F j, Y', strtotime($reply->created_at)) }} : {{  $reply->comment  }}
+                      <li class="list-group-item">Posted by, {{ ($reply->user)? $reply->user->display_name :'Unknown' }}  on {{ date('F j, Y', strtotime($reply->created_at)) }} : {{  $reply->comment  }}
 
                       </li>
                     @endforeach
