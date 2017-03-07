@@ -2,7 +2,7 @@
 
 
   <div class="trending-main-section">
-    <div class="trending-heading"><h3 class="heading">ReCore (Xbox One Digital Download) <img src="/assets/front/images/best-buy.jpg"/></h3><span class="sub-heading">Written by <b>{{ $post->user->display_name }}</b></br><i>{{ date('F j, Y', strtotime($post->created_at )) }}</i></span></div>
+    <div class="trending-heading"><h3 class="heading">{{ $post->title }} <img src="/assets/front/images/best-buy.jpg"/></h3><span class="sub-heading">Written by <b>{{ $post->user->display_name }}</b></br><i>{{ date('F j, Y', strtotime($post->created_at )) }}</i></span></div>
   </div>
 
 

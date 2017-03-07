@@ -14,6 +14,7 @@ class Post extends Model
       $post->user_id = Auth::user()->id;
       $post->title  = $request->title;
       $post->post = $request->post;
+      $post->article_source = $request->article_source;
       if($request->hasFile('thumbnail_image')){
         $imageName = time().'.'.$request->thumbnail_image->getClientOriginalExtension();
         $request->thumbnail_image->move(public_path('assets/post/images'), $imageName);

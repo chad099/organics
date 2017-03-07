@@ -21,7 +21,7 @@ $(document).ready(function(){
         method:'post',
         data: data,
         success: function(response) {
-          if(response == 'success'){ 
+          if(response == 'success'){
             if(data.vote == "like"){
               $('#likeShow').html(parseInt($('#likeShow').html()) + 1);
             } else {
@@ -35,4 +35,7 @@ $(document).ready(function(){
 
   });
 
+  $("#imgUploadBtn").click(function() {
+      $("input[name='thumbnail_image']").click();
+  });
 });

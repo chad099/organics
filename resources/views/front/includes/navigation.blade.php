@@ -1,7 +1,7 @@
 <div class="center">
   <div class="header">
     <div class="logo">
-      <img src="/assets/front/images/logo.jpg">
+      <a href="/"><img src="/assets/front/images/logo.jpg"></a>
     </div>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">

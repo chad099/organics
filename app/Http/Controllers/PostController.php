@@ -31,8 +31,7 @@ class PostController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'title' => 'required',
-            'post' => 'required'
+            'title' => 'required'
         ]);
     }
 
@@ -48,7 +47,7 @@ class PostController extends Controller
 
       if($validator->fails())
       {
-          return Redirect::back()->withInput()->withErrors($validator);
+          return back()->withInput()->withErrors($validator);
       }
       Post::store($request);
       Session::flash('message', 'Your post has been submited successfully.');
