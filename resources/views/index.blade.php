@@ -13,5 +13,7 @@
     @include('front.pages.posts')
   @elseif($page == 'post')
     @include('front.pages.post')
+  @elseif($page == 'profile_setting')
+    @include('front.pages.profile_setting')
   @endif
 @endsection

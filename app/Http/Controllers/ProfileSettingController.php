@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-class IndexController extends Controller
+use Auth, Validator;
+class ProfileSettingController extends Controller
 {
-    /**``
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data = [];
-        $data['page'] = 'index';
-        $data['posts'] = Post::orderBy('created_at', 'DESC')->where('is_approved', 1)->simplePaginate(6);
-        return view('index', $data);
+        //
     }
+
+    protected function validator(array $data, $rules)
+    {
+        return Validator::make($data, $rules);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -59,7 +62,10 @@ class IndexController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [];
+        $data['page'] = 'profile_setting';
+        $data['user'] = Auth::user();
+        return view('index', $data);
     }
 
     /**
@@ -83,5 +89,30 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function imageUpload(Request $request) {
+
+     if(!$request->file){
+        return ['error'=> true, 'message'=>'Please choose image'];
+      }
+
+      $validator = $this->validator($request->all(), ['file'=>'required|image|mimes:jpeg,png,jpg|max:2048']);
+
+      if($validator->fails())
+      {
+          return response()->json(['errors'=>$validator->errors()]);
+      }
+
+      $filename = time().'_'.$request->file->getClientOriginalName();
+      $path = 'assets/front/profileImages';
+      $request->file->move($path, $filename);
+      if(Auth::user()->profile_image) {
+          unlink($path.'/'.Auth::user()->profile_image);
+      }
+
+      Auth::user()->profile_image = $filename;
+      Auth::user()->save();
+      return json_encode(array('profile_image' => Auth::user()->profile_image));
     }
 }

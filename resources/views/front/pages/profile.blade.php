@@ -16,13 +16,16 @@
           <li>
             <a style="color: rgb(161, 161, 161);" href="#"><i class="fa fa-certificate"></i> Contributions</a>
           </li>
+          <li>
+            <a style="color: rgb(161, 161, 161);" href="/profile-setting/{{ Auth::user()->id }}/edit"><i class="fa fa-certificate"></i> Setting</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-9 right-side-width">
         <div class="panel panel-default">
             <div class="row">
               <div class="container">
-                  <h3 class="profile-overview-wrapper">Profile Overview</h3>
+                  <h3 class="profile-overview-wrapper">Profile Overview <a href="/profile-setting/{{ Auth::user()->id }}/edit"><button class="profile" type="button">EDIT PROFILE</button></a> </h3>
                     <div class="row">
                       <div class="col-sm-12">
                       <div class="col-sm-6">

@@ -59,6 +59,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth','admin']], function(){
   Route::resource('comments', 'AdminCommentController');
 });
 
+Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
+  Route::post('profile-setting/upload_image', 'ProfileSettingController@imageUpload');
+  Route::resource('profile-setting', 'ProfileSettingController');
+});
+
 Route::get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');
 Auth::routes();
- Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');

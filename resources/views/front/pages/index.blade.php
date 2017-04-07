@@ -36,7 +36,7 @@
                  <img src="/assets/front/images/squril.jpg" style="float:left;padding-right: 14px">
                 @endif
                 <p style="float:left">
-                    <a href="/post/{{$post->id}}"><span class="trending-text">{{ $post->title}}</span></a>
+                    <a href="/post/{{$post->id}}"><span class="trending-text">{{ $post->title }}</span></a>
                     <span><i style="font-size: 18px;"></i></span>
                       <br>submitted at {{ date('F d, Y, l',strtotime($post->created_at)) }} by <b>{{ $post->user->display_name }}</b> <img src="/assets/front/images/comments.jpg" style="padding-left: 22px;">
                       <span style="font-size: 10px;"> {{ count($post->comments) }} <i>COMMENTS</i></span>
@@ -44,8 +44,10 @@
               </div>
               @endforeach
              @endif
-
-          <div class="trending-button"><img src="/assets/front/images/buttons.jpg"></div>
+             <div class="trending-button">
+                <a href="{{ $posts->previousPageUrl() }}" class="previous">Previous</a>
+                <a href="{{ $posts->nextPageUrl() }}" class="next"><span>{{ $posts->currentPage() }}</span>Next</a>
+            </div>
 
       </div>
     </div>
