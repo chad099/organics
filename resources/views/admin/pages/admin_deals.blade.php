@@ -17,7 +17,7 @@
                 <tbody>
                   @foreach($deals as $deal)
                     <tr class="gradeU">
-                        <td><a href="/admin/posts/{{ $deal->id }}/edit"> {{ $deal->title }}</a></td>
+                        <td>{{ $deal->title }}</td>
                         <td>{{ $deal->user->display_name }}</td>
                         <td class="center">
                           @if($deal->is_active)
