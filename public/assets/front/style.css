@@ -68,7 +68,7 @@ display: inline-block;}
 .trending-text {color: #7AB82F;font-size: 18px; line-height: 36px;}
 .trending-button {text-align: center;padding-top: 57px;padding-bottom: 23px;}
 .featured-deals {display: table;content: "";clear: both;padding-top: 50px;}
-.deal {border: 1px solid #DBDBDB;border-radius: 9px;width: 18%;float: left;margin-right: 15px;}
+.deal {border: 1px solid #DBDBDB;border-radius: 9px; width: 146px; float: left;margin-right: 15px;}
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {background-color: transparent !important;}
 .website-name{text-align: right;color: rgb(188, 188, 188);padding-right: 10px;font-style: italic;font-family: Raleway-Regular;font-size: 10px;letter-spacing: 2px;}
 .deal-details {text-align: center;padding: 20px 0px;font-size: 12px;font-family: Raleway-Regular;}
@@ -80,7 +80,7 @@ display: inline-block;}
 .thumb img {margin-right: 7px;}
 .featured-deals :after{display: table;content: "";clear: both;}
 .right {margin-top: 94px;padding: 0px 50px;}
-form {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
+form-class {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
 input{border: none;border-bottom: 1px solid #bababa;padding-bottom: 20px;}
 .name {width: 220px;padding-top: 14px;font-weight: bold;font-family: Raleway-Regular;}
 .pwd  {width: 220px;padding-top: 14px;font-weight: bold;font-family: Raleway-Regular;}

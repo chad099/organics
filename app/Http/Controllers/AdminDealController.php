@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post, App\Deal;
-class IndexController extends Controller
+use App\Deal, Session;
+class AdminDealController extends Controller
 {
-    /**``
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -14,10 +14,9 @@ class IndexController extends Controller
     public function index()
     {
         $data = [];
-        $data['page'] = 'index';
-        $data['posts'] = Post::orderBy('created_at', 'DESC')->where('is_approved', 1)->simplePaginate(6);
-        $data['deals'] = Deal::where('is_active', 1)->orderBy('created_at', 'DESC')->paginate(6); 
-        return view('index', $data);
+        $data['page'] = 'admin_deals';
+        $data['deals'] = Deal::orderBy('created_at', 'DESC')->paginate(25);
+        return view('admin', $data);
     }
 
     /**
@@ -85,4 +84,38 @@ class IndexController extends Controller
     {
         //
     }
+
+    public function approveDeal($id)
+    {
+      $deal = Deal::find($id);
+      $deal->is_active = 1;
+      $deal->save();
+      Session::flash('message',  'Deal has been approved successfully.');
+      return back();
+    }
+
+    public function unapproveDeal($id)
+    {
+      $deal = Deal::find($id);
+      $deal->is_active = 0;
+      $deal->save();
+      Session::flash('message',  'Deal has been un approved successfully.');
+      return back();
+    }
+
+    public function deleteDeal($id)
+    {
+      $deal = Deal::find($id);
+      if($deal)
+      {
+        $deal->delete();
+        Session::flash('message',  'Deal has been deleted successfully.');
+        return back();
+      }
+
+      Session::flash('message',  'Deal has not delete successfully.');
+      return back();
+    }
+
+
 }

@@ -9,6 +9,9 @@
 		<!-- Latest compiled JavaScript -->
 		<script src="/assets/front/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/assets/front/custom.css" />
+		<link href="/assets/front/tab/responsive-tabs.css" rel="stylesheet" type="text/css" />
+    <script src="/assets/front/js/responsive-tabs.js" type="text/javascript"></script>
+		<title>Organic</title>
 	</head>
 	<body>
 				<div class="header-wrapper">

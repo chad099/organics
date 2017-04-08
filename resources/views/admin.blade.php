@@ -25,8 +25,9 @@
     @include('admin.pages.postedit')
   @elseif($page == 'view_post')
     @include('admin.pages.viewpost')
-
   @elseif($page == 'admin_comment_replys')
-     @include('admin.pages.admin_comment_replys')    
+     @include('admin.pages.admin_comment_replys')
+ @elseif($page == 'admin_deals')
+    @include('admin.pages.admin_deals')    
   @endif
 @endsection

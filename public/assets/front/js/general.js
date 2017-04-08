@@ -39,12 +39,17 @@ $(document).ready(function(){
       $("input[name='thumbnail_image']").click();
   });
 
+  $("#imgUploadBtn1").click(function() {
+      $("input[name='product_image']").click();
+  });
+
   $('#open_image_upload_btn').click(function(){
     $('#profile_image_form input[name=profile_image]').click();
   });
 
   $('#profile_image_form input[name=profile_image]').change(function() {
-
+      $('#loader').show();
+      $('body').css('opacity', 0.5);
       var file_data = $("#profile_image_form input[name=profile_image]").prop("files")[0];
       var form_data = new FormData();
       form_data.append("file", file_data);
@@ -57,16 +62,35 @@ $(document).ready(function(){
         type: 'post',
         data : form_data,
         success: function(response) {
-            console.log('This is response', response);
-            if(response.error) {
-              alert(response.message);
+            $('body').css('opacity', 1);
+            $('#loader').hide();
+            if(response && response.errors) {
+              var html = '';
+              $.each(response.errors.file, function(key, item) {
+                  html += '<p>'+item+'</p>';
+              });
+              $('.errors').prepend('<div class="row" style="text-align:center; color:red;">'+html+'</div>');
+            } else {
+                $('#open_image_upload_btn img').attr('src', '/assets/front/profileImages/'+ JSON.parse(response).profile_image);
             }
-
-            $('#open_image_upload_btn img').attr('src', '/assets/front/profileImages/'+ JSON.parse(response).profile_image);
         }
       });
+  });
 
-
+  $('#reset_link_btn').click(function(){
+    window.location.href= '/profile-setting/changepassword';
+    // $('#loader').show();
+    // $('body').css('opacity', 0.5);
+    // $.ajax({
+    //   url: '/password/email',
+    //   type: 'post',
+    //   data : $('#reset_link_send_form').serialize(),
+    //   success: function(response){
+    //     //console.log(response);
+    //     $('body').css('opacity', 1);
+    //     $('#loader').hide();
+    //   }
+    // });
   });
 
 });

@@ -44,7 +44,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
       $validator = $this->validator($request->all());
-
+      Session::flash('tab', 'article');
       if($validator->fails())
       {
           return back()->withInput()->withErrors($validator);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth, Validator;
+use Auth, Validator, Hash, Session;
 class ProfileSettingController extends Controller
 {
     /**
@@ -40,7 +40,16 @@ class ProfileSettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validator = $this->validator($request->all(), ['display_name'=>'required', 'email'=>'required|email']);
+      if($validator->fails())
+      {
+          return back()->withErrors($validator);
+      }
+      Auth::user()->display_name = $request->display_name;
+      Auth::user()->email = $request->email;
+      Auth::user()->save();
+      Session::flash('message', 'profile has changed successfully.');
+      return back();
     }
 
     /**
@@ -114,5 +123,24 @@ class ProfileSettingController extends Controller
       Auth::user()->profile_image = $filename;
       Auth::user()->save();
       return json_encode(array('profile_image' => Auth::user()->profile_image));
+    }
+
+    public function changePassword(){
+      $data = [];
+      $data['user'] = Auth::user();
+      $data['page'] = 'changepassword';
+      return view('index', $data);
+    }
+
+    public function saveChangePassword(Request $request) {
+      $validator = $this->validator($request->all(), ['password'=>'required|min:6', 'confirm_password'=>'required|same:password']);
+      if($validator->fails())
+      {
+          return back()->withErrors($validator);
+      }
+      Auth::user()->password = Hash::make($request->password);
+      Auth::user()->save();
+      Session::flash('message', 'Password has changed successfully.');
+      return redirect('profile-setting/'.Auth::user()->id.'/edit');
     }
 }

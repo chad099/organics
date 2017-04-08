@@ -15,5 +15,7 @@
     @include('front.pages.post')
   @elseif($page == 'profile_setting')
     @include('front.pages.profile_setting')
+  @elseif($page == 'changepassword')
+    @include('front.pages.changepassword')
   @endif
 @endsection

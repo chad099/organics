@@ -60,59 +60,29 @@
           <div class="trending-heading"><h1>FEATURED DEALS</h1> </div>
         </div>
           <div class="featured-deals">
-            <div class="deal">
-              <img src="/assets/front/images/adorama.jpg">
-              <div class="deal-text"><p class="website-name"> Adorama</p>
-                <p class="deal-details">Nikon D610 24.2 MP<br>
-                DIgital SLR Camera </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$450</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img5.jpg">
-              <div class="deal-text"><p class="website-name"> Dorcousa.com</p>
-                <p class="deal-details">Dorco Pace Power<br>
-                Men's Razor</p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$13.65</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img2.jpg">
-              <div class="deal-text"><p class="website-name"> Walmart.com</p>
-                <p class="deal-details">Protectr Silex Stainles<br>
-                Steel Electric Kettle</p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$18.25</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img3.jpg">
-              <div class="deal-text"><p class="website-name"> Walmart.com</p>
-                <p class="deal-details">COD: Infinite Walfare<br>
-                Jackal Assault </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$50</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img4.jpg">
-              <div class="deal-text"><p class="website-name"> Eddir Bauer</p>
-                <p class="deal-details">Eddie Bauer Cirruslite<br>
-                Women's Down Parka </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$450</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-
-
+            @if(count($deals) > 0)
+              @foreach($deals as $deal)
+                <div class="deal">
+                  <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
+                  <div class="deal-text">
+                    <p class="website-name">{{ $deal->store_name }}</p>
+                    <p class="deal-details">{{ $deal->title }}</p>
+                    <p class="deal-price">
+                      <span style="float: left;color:#7ab82f;font-weight: bold;">${{ $deal->price }}</span>
+                      @if($deal->price_type == 'free_shipping')
+                        <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span>
+                      @else
+                        <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> IN STORE </i></span>
+                      @endif
+                    </p>
+                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
+                  </div>
+                </div>
+              @endforeach
+            @else
+            <h3>NO FEATURED DEALS</h3>
+            @endif
           </div>
-
       </div>
     </div>
     <!-------------------------------------------------TRENDING DEALS ------------------------->
@@ -123,58 +93,33 @@
           <div class="trending-heading"><h1>TRENDING DEALS</h1> </div>
         </div>
           <div class="featured-deals">
-            <div class="deal">
-              <img src="/assets/front/images/adorama.jpg">
-              <div class="deal-text"><p class="website-name"> Adorama</p>
-                <p class="deal-details">Nikon D610 24.2 MP<br>
-                DIgital SLR Camera </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$450</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
+            @if(count($deals) > 0)
+              @foreach($deals as $deal)
+                <div class="deal">
+                  <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
+                  <div class="deal-text">
+                    <p class="website-name">{{ $deal->store_name }}</p>
+                    <p class="deal-details">{{ $deal->title }}</p>
+                    <p class="deal-price">
+                      <span style="float: left;color:#7ab82f;font-weight: bold;">${{ $deal->price }}</span>
+                      @if($deal->price_type == 'free_shipping')
+                        <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span>
+                      @else
+                        <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> IN STORE </i></span>
+                      @endif
+                    </p>
+                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
+                  </div>
+                </div>
+              @endforeach
+            @else
+              <h3>NO TRENDING DEALS EXISTS</h3>
+            @endif
+            @if(count($deals) > 5)
+            <div style="text-align:center">
+              <img src="/assets/front/images/more-details.jpg" style="padding-top: 42px;">
             </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img5.jpg">
-              <div class="deal-text"><p class="website-name"> Dorcousa.com</p>
-                <p class="deal-details">Dorco Pace Power<br>
-                Men's Razor</p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$13.65</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img2.jpg">
-              <div class="deal-text"><p class="website-name"> Walmart.com</p>
-                <p class="deal-details">Protectr Silex Stainles<br>
-                Steel Electric Kettle</p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$18.25</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img3.jpg">
-              <div class="deal-text"><p class="website-name"> Walmart.com</p>
-                <p class="deal-details">COD: Infinite Walfare<br>
-                Jackal Assault </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$50</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div class="deal">
-              <img src="/assets/front/images/deal-img4.jpg">
-              <div class="deal-text"><p class="website-name"> Eddir Bauer</p>
-                <p class="deal-details">Eddie Bauer Cirruslite<br>
-                Women's Down Parka </p>
-                <p class="deal-price"><span style="float: left;color:#7ab82f;font-weight: bold;">$450</span> <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> SHIPPING </i></span></p>
-                <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
-
-              </div>
-            </div>
-            <div style="text-align:center"><img src="/assets/front/images/more-details.jpg" style="padding-top: 42px;"></div>
-
+            @endif
           </div>
       </div>
     </div>

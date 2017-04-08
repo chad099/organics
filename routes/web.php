@@ -61,7 +61,20 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth','admin']], function(){
 
 Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
   Route::post('profile-setting/upload_image', 'ProfileSettingController@imageUpload');
+  Route::get('profile-setting/changepassword', 'ProfileSettingController@changePassword');
+  Route::post('profile-setting/changepassword', 'ProfileSettingController@saveChangePassword');
   Route::resource('profile-setting', 'ProfileSettingController');
+});
+
+Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
+  Route::resource('deal', 'DealController');
+});
+
+Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'admin']], function() {
+  Route::get('deals/{id}/approve', 'AdminDealController@approveDeal');
+  Route::get('deals/{id}/unapprove', 'AdminDealController@unapproveDeal');
+  Route::get('deals/{id}/delete', 'AdminDealController@deleteDeal');
+  Route::resource('deals', 'AdminDealController');
 });
 
 Route::get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');

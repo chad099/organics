@@ -3,21 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post, App\Deal;
-class IndexController extends Controller
+use App\Deal, Validator, Session;
+class DealController extends Controller
 {
-    /**``
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+     protected function validator(array $data, $rules)
+     {
+         return Validator::make($data, $rules);
+     }
+
     public function index()
     {
-        $data = [];
-        $data['page'] = 'index';
-        $data['posts'] = Post::orderBy('created_at', 'DESC')->where('is_approved', 1)->simplePaginate(6);
-        $data['deals'] = Deal::where('is_active', 1)->orderBy('created_at', 'DESC')->paginate(6); 
-        return view('index', $data);
+        //
     }
 
     /**
@@ -38,7 +40,17 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = ['title'=>'required', 'price'=>'required|integer', 'price_type'=>'required', 'store_name'=>'required'];
+
+        $validate = $this->validator($request->all(), $rules);
+        if($validate->fails())
+        {
+          return back()->withInput()->withErrors($validate);
+        }
+
+        Deal::store($request);
+        Session::flash('message', 'Your deal has been submitted successfully.');
+        return back();
     }
 
     /**
