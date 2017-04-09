@@ -241,19 +241,19 @@ form label{font-size: 13px;color: rgb(150, 150, 150);font-family: Raleway-Regula
 .panel{margin-bottom: 0px !important;}
 
 /*----------------Registration Page-----------------*/
-.badge1 {background: linear-gradient(to right,#f02289,#b738a1);width: 40%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
+.badge1 {background: linear-gradient(to right,#f02289,#b738a1);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge1 img {float: left;margin-left: 6px;}
-.badge2 {background: linear-gradient(to right,#b4dbad,#47cda3);width: 40%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
+.badge2 {background: linear-gradient(to right,#b4dbad,#47cda3);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge2 img {float: left;margin-left: 6px;}
-.badge3 {background: linear-gradient(to right,#47bfd6,#3561be);width: 41%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
+.badge3 {background: linear-gradient(to right,#47bfd6,#3561be);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge3 img {float: left;margin-left: 6px;}
-.badge4 {background: linear-gradient(to right,#fe6868,#b93737);width: 40%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge4 {background: linear-gradient(to right,#fe6868,#b93737);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
 .badge4 img {float: left;margin-left: 6px;}
-.badge5 {background: linear-gradient(to right,#ff9e68,#ff5d01);width: 40%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge5 {background: linear-gradient(to right,#ff9e68,#ff5d01);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
 .badge5 img {float: left;margin-left: 6px;}
-.badge6 {background: linear-gradient(to right,#9de695,#7ab930);width: 41%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge6 {background: linear-gradient(to right,#9de695,#7ab930);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
 .badge6 img {float: left;margin-left: 6px;}
-.badge7 {background: linear-gradient(to right,#ffd65b,#ffa64e);width: 13%;padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge7 {background: linear-gradient(to right,#ffd65b,#ffa64e);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
 .badge7 img {float: left;margin-left: 6px;}
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {height: 5px;border-top: 0;background: #c4e17f;border-radius: 5px;background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);

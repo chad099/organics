@@ -90,6 +90,7 @@ class AdminDealController extends Controller
       $deal = Deal::find($id);
       $deal->is_active = 1;
       $deal->save();
+      $post->user->totalPostsIncrement();
       Session::flash('message',  'Deal has been approved successfully.');
       return back();
     }

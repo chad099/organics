@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use DateTime, Hash;
+use DateTime, Hash, App\Util, Auth;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role','first_name', 'last_name', 'display_name', 'confirmed', 'confirmation_code'
+        'name', 'email', 'password','role','first_name', 'last_name', 'display_name', 'confirmed', 'confirmation_code', 'total_approve_posts', 'votes'
     ];
 
     /**
@@ -77,5 +77,21 @@ class User extends Authenticatable
       $diff = $then->diff($now);
       return $diff->y."y ".$diff->m."m ".$diff->d."d ".$diff->h."h ".$diff->i."m ".$diff->s."s";
       return array('years' => $diff->y, 'months' => $diff->m, 'days' => $diff->d, 'hours' => $diff->h, 'minutes' => $diff->i, 'seconds' => $diff->s);
+    }
+
+    public function totalPostsIncrement()
+    {
+      $this->total_approve_posts += 1;
+      $this->save();
+      return true;
+    }
+
+    public function badge()
+    {
+      if($this->role == 0) {
+        return Util::userBadge('admin');
+      }
+
+      return Util::userBadge($this->total_approve_posts);
     }
 }

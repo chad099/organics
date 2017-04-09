@@ -97,6 +97,8 @@ class AdminPostController extends Controller
       if($post)
       {
           $post->is_approved = 1;
+          echo  $post->user->totalPostsIncrement();
+          die;
           $post->save();
           Session::flash('success', 'Post has been approved successfully.');
       }

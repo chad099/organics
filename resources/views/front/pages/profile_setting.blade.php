@@ -1,7 +1,6 @@
 
 <div class="row profile-bg-wrapper">
   <div class="container">
-
     <div class="col-sm-12 left-side-width">
       @if($user->profile_image)
         <img class="circle-img50" src="/assets/front/profileImages/{{ $user->profile_image }}"/>
@@ -9,7 +8,8 @@
         <img src="/assets/front/images/user-icon.png"/>
       @endif
       <span class="user-title">{{ Auth::user()->display_name }}</span>
-      <img src="/assets/front/images/apprentice.png"/></div>
+      {!! Auth::user()->badge() !!}
+    </div>
   </div>
 </div>
 

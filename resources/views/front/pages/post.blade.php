@@ -73,11 +73,17 @@
     <span class="heading3">About the OP	</span></br></br></br></br>
     <div class="row responsive-class">
       <div class="col-sm-3 empty-height">
-        <img class="op-icon" src="/assets/front/images/user-icon.png"> <span class="heading4">{{ $post->user->display_name }}</span></br>
+        @if($post->user->profile_image)
+          <img class="circle-img50" src="/assets/front/profileImages/{{ $post->user->profile_image }}"/>
+        @else
+          <img src="/assets/front/images/user-icon.png"/>
+        @endif
+
+        <span class="heading4">{{ $post->user->display_name }}</span></br>
         <span class="small-text2">{{ date('F j, Y', strtotime($post->user->created_at)) }}</span>
       </div>
       <div class="col-sm-3 empty-height">
-        <img src="/assets/front/images/apprentice.png">
+      {!! $post->user->badge() !!}
       </div>
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/STAR.png" class="icon-image"><b>0</b> Reputation Points</br>
@@ -95,7 +101,13 @@
       @foreach($post->comments as $comment)
       <div class="row">
         <div class="col-sm-9">
-          <p class="user-icon"><img src="/assets/front/images/user-icon.png"> </p>
+          <p class="user-icon">
+            @if($comment->user->profile_image)
+              <img class="circle-img50" src="/assets/front/profileImages/{{ $comment->user->profile_image }}"/>
+            @else
+              <img src="/assets/front/images/user-icon.png"/>
+            @endif
+          </p>
           <p class="space-left"><span class="comments-user-title">{{ $comment->user->display_name }}</span><br>
           <span class="date">{{ date('F d, Y, l', strtotime($comment->created_at)) }} at {{ date('h:i:s', strtotime($comment->created_at)) }}</span><br><br>
           <span style="">{{ $comment->comment }}.</span></p>
