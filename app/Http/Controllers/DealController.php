@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Deal, Validator, Session;
+use App\Deal, Validator, Session, App\DealComment;
 class DealController extends Controller
 {
     /**
@@ -61,7 +61,10 @@ class DealController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [];
+        $data['page'] = 'deal';
+        $data['deal'] = Deal::find($id);
+        return view('two_column', $data);
     }
 
     /**
@@ -96,5 +99,20 @@ class DealController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addComment(Request $request)
+    {
+
+      $rules = ['comment'=>'required'];
+      $validate = $this->validator($request->all(), $rules);
+      if($validate->fails())
+      {
+        return back()->withInput()->withErrors($validate);
+      }
+
+      DealComment::store($request);
+      Session::flash('message', 'Your comment has been submitted successfully.');
+      return back();
     }
 }

@@ -66,7 +66,8 @@ Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
   Route::resource('profile-setting', 'ProfileSettingController');
 });
 
-Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
+Route::group(['prefix'=>''], function() {
+  Route::post('deal/addcomment', 'DealController@addComment');
   Route::resource('deal', 'DealController');
 });
 
