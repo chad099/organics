@@ -64,8 +64,8 @@
               @foreach($deals as $deal)
                 <div class="deal">
                   <a href="/deal/{{ $deal->id }}">
-                  <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
-                </a>
+                    <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
+                  </a>
                   <div class="deal-text">
                     <p class="website-name">{{ $deal->store_name }}</p>
                     <p class="deal-details">{{ $deal->title }}</p>
@@ -98,7 +98,9 @@
             @if(count($deals) > 0)
               @foreach($deals as $deal)
                 <div class="deal">
-                  <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
+                  <a href="/deal/{{ $deal->id }}">
+                    <img class="img-h-146" src="/assets/front/productImages/{{ $deal->product_image }}">
+                  </a>
                   <div class="deal-text">
                     <p class="website-name">{{ $deal->store_name }}</p>
                     <p class="deal-details">{{ $deal->title }}</p>

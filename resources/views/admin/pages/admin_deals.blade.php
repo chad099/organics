@@ -26,6 +26,8 @@
                             <a href="/admin/deals/{{ $deal->id }}/approve" onclick="return confirm('Are you sure?');">Approve</a>
                           @endif
                           |
+                          <a href="/deal/{{ $deal->id }}">View</a>
+                          |
                          <a href="/admin/deals/{{ $deal->id }}/delete" onclick="return confirm('Are you sure?');">Delete</a>
                         </td>
                     </tr>

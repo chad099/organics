@@ -1,6 +1,10 @@
 <div class="left-page">
 
-
+  @if(Auth::check() && Auth::user()->role == 0 && $deal->is_active == 0)
+  <div class="row" style="margin:10px;">
+    <a href="/admin/deals/{{ $deal->id }}/approve" class="see-deal">Approve Deal</a>
+  </div>
+  @endif
   <div class="trending-main-section">
     <div class="trending-heading"><h3 class="heading">{{ $deal->title }} <img src="/assets/front/images/best-buy.jpg"/></h3><span class="sub-heading">Written by <b>{{ $deal->user->display_name }}</b></br><i>{{ date('F j, Y', strtotime($deal->created_at )) }}</i></span></div>
   </div>
@@ -33,6 +37,22 @@
       </div>
       <div class="col-sm-4 empty-height">
         <img src="/assets/front/images/social-icon.png"/>
+        <!-- <div class="row">
+          <div class="social-buttons">
+             <a style="font-size: 25px; margin: 15px;" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}"
+                target="_blank">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+             </a>
+            <a style="font-size: 25px; margin: 15px;" href="https://twitter.com/intent/tweet?url={{ urlencode(Request::url()) }}"
+               target="_blank">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+           <a style="font-size: 25px; margin: 15px;" href="https://plus.google.com/share?url={{ urlencode(Request::url()) }}"
+           target="_blank">
+           <i class="fa fa-google-plus" aria-hidden="true"></i>
+           </a>
+         </div>
+        </div> -->
       </div>
     </div>
     </br>
@@ -85,11 +105,11 @@
       </div>
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/STAR.png" class="icon-image"><b>0</b> Reputation Points</br>
-        <img src="/assets/front/images/token.png" class="icon-image"><b>0</b>  Deals Posted
+        <img src="/assets/front/images/token.png" class="icon-image"><b>{{ count($deal->user->deals) }}</b>  Deals Posted
       </div>
       <div class="col-sm-3 empty-height">
         <img src="/assets/front/images/THUMB.png" class="icon-image"><b>0 </b> Votes Submitted</br>
-        <img src="/assets/front/images/bubble.png" class="icon-image"><b>{{ count($deal->user->comments)}}</b> Comments Posted
+        <img src="/assets/front/images/bubble.png" class="icon-image"><b>{{ $deal->user->userAllComments() }}</b> Comments Posted
       </div>
     </div>
     </br></br></br></br>
@@ -140,10 +160,12 @@
     @endif
     <div class="row button-section">
       <div class="col-sm-6">
-        <img src="/assets/front/images/buttons.jpg">
+        <!-- <img src="/assets/front/images/buttons.jpg"> -->
       </div>
       <div class="col-sm-6" style="text-align: right;">
-        <a href="#" class="see-deal">Reply</a>
+        @if(Auth::check())
+          <a href="#" class="see-deal">Reply</a>
+        @endif
       </div>
 
     </div>

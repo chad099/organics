@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use DateTime, Hash, App\Util, Auth;
+use DateTime, Hash, App\Util, Auth, DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -66,6 +66,16 @@ class User extends Authenticatable
       return $this->hasMany('App\Comment', 'user_id', 'id')->where('moderate', 0);
     }
 
+    public function userAllComments()
+    {
+      return DB::table('comments')
+                  ->leftJoin('users', 'users.id', '=', 'comments.user_id')
+                  ->leftJoin('deal_comments', 'deal_comments.user_id', '=', 'users.id')
+                  ->where('comments.moderate', 0)
+                  ->orWhere('deal_comments.is_approve', 1)
+                  ->count();
+    }
+
     public function posts()
     {
       return $this->hasMany('App\Post', 'user_id', 'id')->where('is_approved', 1)->orderBy('created_at', 'DESC');
@@ -93,5 +103,10 @@ class User extends Authenticatable
       }
 
       return Util::userBadge($this->total_approve_posts);
+    }
+
+    public function deals()
+    {
+      return $this->hasMany('App\Deal', 'user_id', 'id')->where('is_active', 1);
     }
 }

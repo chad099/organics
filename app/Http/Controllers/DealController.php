@@ -64,6 +64,11 @@ class DealController extends Controller
         $data = [];
         $data['page'] = 'deal';
         $data['deal'] = Deal::find($id);
+        if($data['deal'])
+        {
+          $data['deal']->views++;
+          $data['deal']->save();
+        }
         return view('two_column', $data);
     }
 

@@ -38,7 +38,7 @@ class Deal extends Model
     {
       return $this->hasOne('App\User', 'id', 'user_id');
     }
-    
+
     public function comments()
     {
       return $this->hasMany('App\DealComment', 'deal_id', 'id')->where('is_approve', 1);

@@ -10,6 +10,7 @@
 		<!-- Latest compiled JavaScript -->
     <link rel="stylesheet" type="text/css" href="/assets/front/custom.css" />
 		<script src="/assets/front/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/assets/front/css/font-awesome.min.css" />
 	</head>
 	<body>
     <div class="header-wrapper">
@@ -25,7 +26,7 @@
 							<div class="alert alert-success">
 									{{ Session::get('message') }}
 							</div>
-							@endif	
+							@endif
 							@if(Session::has('error_message'))
 							<div class="alert alert-alert">
 									{{ Session::get('error_message') }}
