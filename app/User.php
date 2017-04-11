@@ -68,12 +68,9 @@ class User extends Authenticatable
 
     public function userAllComments()
     {
-      return DB::table('comments')
-                  ->leftJoin('users', 'users.id', '=', 'comments.user_id')
-                  ->leftJoin('deal_comments', 'deal_comments.user_id', '=', 'users.id')
-                  ->where('comments.moderate', 0)
-                  ->orWhere('deal_comments.is_approve', 1)
-                  ->count();
+      $comments = Comment::where('moderate', 0)->where('user_id', $this->id)->count();
+      $deal_comments = DealComment::where('is_approve', 1)->where('user_id', $this->id)->count();
+      return $comments + $deal_comments;
     }
 
     public function posts()
