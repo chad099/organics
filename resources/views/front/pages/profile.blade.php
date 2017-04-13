@@ -75,9 +75,12 @@
               </div>
             </div>
         <hr>
+        <div id="loader" style="display:none;"></div>
         <div class="row">
           <div class="container">
             <h3>Activity</h3>
+            <input type="hidden" name="current_article_count" value="10"/>
+            <div class="users-article">
             @if(count(Auth::user()->posts) > 0)
               @foreach(Auth::user()->posts as $post)
                 <div class="col-sm-9">
@@ -96,7 +99,6 @@
                               </a>
                             </p>
                           @endif
-
                   </div>
                 </div>
                 <div class="col-sm-3 gap-section">
@@ -104,10 +106,11 @@
                 </div>
               @endforeach
             @endif
+            </div>
               <div class="row">
                 <div class="container">
                   <div class="col-sm-12">
-                    <p class="Load-more-margin"><a href="#" class="Load-more">LOAD MORE</a></p>
+                    <p class="Load-more-margin"><a href="javascript:void(0);" class="loadMoreDate Load-more">LOAD MORE</a></p>
                   </div>
                 </div>
               </div>

@@ -77,7 +77,7 @@
                         <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> IN STORE </i></span>
                       @endif
                     </p>
-                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
+                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg"> {{ count($deal->upVoteCounts) }}</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">{{ count($deal->comments)}}</span></p>
                   </div>
                 </div>
               @endforeach
@@ -112,7 +112,7 @@
                         <span style="float: right;"><i style="color: #BCBCBC;"> FREE <br> IN STORE </i></span>
                       @endif
                     </p>
-                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">22</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">12</span></p>
+                    <p class="deal-like"><span class="thumb"><img src="/assets/front/images/thumb.jpg">{{ count($deal->upVoteCounts) }}</span> <span class="chat-cloud"><img src="/assets/front/images/cloud.jpg">{{ count($deal->comments) }}</span></p>
                   </div>
                 </div>
               @endforeach

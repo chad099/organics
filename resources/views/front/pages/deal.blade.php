@@ -35,42 +35,49 @@
       <div class="col-sm-4 empty-height">
         <span class="small-text">If you purchase something through a post on our site, Organics may get a small share of the sale.</span>
       </div>
-      <div class="col-sm-4 empty-height">
-        <img src="/assets/front/images/social-icon.png"/>
-        <!-- <div class="row">
-          <div class="social-buttons">
-             <a style="font-size: 25px; margin: 15px;" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}"
-                target="_blank">
-              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-             </a>
-            <a style="font-size: 25px; margin: 15px;" href="https://twitter.com/intent/tweet?url={{ urlencode(Request::url()) }}"
-               target="_blank">
-            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </a>
-           <a style="font-size: 25px; margin: 15px;" href="https://plus.google.com/share?url={{ urlencode(Request::url()) }}"
-           target="_blank">
-           <i class="fa fa-google-plus" aria-hidden="true"></i>
-           </a>
-         </div>
-        </div> -->
+      <div class="col-sm-4 empty-height social-buttons">
+
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/facbook.jpg"/>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/twiter.jpg"/>
+        </a>
+        <a href="https://plus.google.com/share?url={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/google.jpg"/>
+        </a>
+        <a href="mailto:{{ env('APP_EMAIL') }}"><img src="/assets/front/images/mail.jpg"/></a>
       </div>
     </div>
     </br>
     <hr>
     </br>
     </br>
+    <div id="loader" style="display:none;"></div>
     <div class="row responsive-class">
 
       <div class="col-sm-3 empty-height">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="vote_url" value="/deal/vote" />
         @if(Auth::check())
-           <a href="javascript:void(0);" class="vote-btn see-deal like-image" data-id = "{{ $deal->id }}" data-vote="like">Like</a>
-           <a href="javascript:void(0);" class="vote-btn see-deal dislike-image" data-id = "{{ $deal->id }}" data-vote="dislike">Dislike</a>
+        <a href="javascript:void(0);" class="vote-btn" data-id = "{{ $deal->id }}" data-vote="like">
+          <img class="like-image" src="/assets/front/images/like.png"/>
+        </a>
+        <a href="javascript:void(0);" class="vote-btn" data-id = "{{ $deal->id }}" data-vote="dislike">
+          <img class="dislike-image" src="/assets/front/images/dislike-icon.jpg"/><p class="dislike">SO DISLIKE</p>
+        </a>
+        @else
+        <a href="javascript:void(0);" class="login-required">
+          <img class="like-image" src="/assets/front/images/like.png"/>
+        </a>
+        <a href="javascript:void(0);" class="login-required">
+          <img class="dislike-image" src="/assets/front/images/dislike-icon.jpg"/><p class="dislike">SO DISLIKE</p>
+        </a>
         @endif
-        <div class="li-btn">
+        <!-- <div class="li-btn">
         <span class="likecou">likes(<span id="likeShow">{{ count($deal->likes) }}</span>)</span>
         <span class="likecou">dislikes(<span id="likeShow">{{ count($deal->dislikes) }}</span>)</span>
-      </div>
+      </div> -->
         <!-- <img class="like-image" src="/assets/front/images/like.png"/>
         <img class="dislike-image" src="/assets/front/images/dislike.png"/> -->
       </div>

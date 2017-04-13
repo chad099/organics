@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Post, Auth;
 class ProfileController extends Controller
 {
     /**
@@ -82,5 +82,11 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function profileArticle(Request $request)
+    {
+      $posts = Post::where('user_id', Auth::user()->id)->skip($request->current_article_count)->take(10)->orderBy('created_at', 'DESC')->get();
+      return ["current_article_count" => $request->current_article_count + 10, "posts" => $posts, "author" => Auth::user()->display_name];
     }
 }

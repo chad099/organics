@@ -15,24 +15,36 @@ $(document).ready(function(){
       id: $(this).attr('data-id'),
       vote: $(this).attr('data-vote'),
       _token: $('input[name=_token]').val()
-    }
+    };
+    $('#loader').show();
+    $('body').css('opacity', 0.5);
+    var _this = $(this);
      $.ajax({
-        url:'/post/vote',
+        url: $('input[name=vote_url]').val(),
         method:'post',
         data: data,
         success: function(response) {
+          $('body').css('opacity', 1);
+          $('#loader').hide();
+          $('.vote-btn').each(function(){
+            $(this).addClass('vote-btn');
+          });
           if(response == 'success'){
+            _this.removeClass('vote-btn');
+            _this.addClass('voted');
             if(data.vote == "like"){
               $('#likeShow').html(parseInt($('#likeShow').html()) + 1);
             } else {
               $('#likeShow').html(parseInt($('#likeShow').html()) - 1);
             }
-
           }
         }
 
      });
+  });
 
+  $('body').on('click', '.voted', function(){
+    alert('you have already voted.');
   });
 
   $("#imgUploadBtn").click(function() {
@@ -109,5 +121,42 @@ $(document).ready(function(){
            e.preventDefault();
        }
    });
+   $('.login-required').click(function(){
+     alert('Please login for vote.');
+   });
 
+   //load more users thread data
+   $('.loadMoreDate').click(function(){
+     data = {
+       _token: $('input[name=_token]').val(),
+       current_article_count: $('input[name=current_article_count]').val()
+     };
+     $('#loader').show();
+     $('body').css('opacity', 0.5);
+     $.ajax({
+       url: '/profile/article',
+       type: 'post',
+       data: data,
+       success: function(response){
+         $('body').css('opacity', 1);
+         $('#loader').hide();
+         if(response.posts.length) {
+           var html = '';
+           $.each(response.posts, function(key, value){
+             value.author = response.author;
+             value.icon = '/assets/front/images/icon1.png';
+              html += wrapHtml(value);
+           });
+           $('.users-article').append(html);
+           $('input[name=current_article_count]').val(response.current_article_count);
+         }
+       }
+     });
+   });
+
+   function wrapHtml(data)
+   {
+     return '<div class="col-sm-9"><div class="profile-page-img"><img src="'+data.icon+'" class="profile-page-imgage"><p class="activity-author"><strong>'+data.author+'</strong> started a new thread<a href="/post/'+data.id+'"><span class="trending-text"><br>'+data.title+'</span></a></p></div></div><div class="col-sm-3 gap-section"><i>10 hours ago</i></div>';
+
+   }
 });

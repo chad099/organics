@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Deal, Validator, Session, App\DealComment;
+use App\Deal, Validator, Session, App\DealComment, App\DealVote, Auth;
 class DealController extends Controller
 {
     /**
@@ -119,5 +119,23 @@ class DealController extends Controller
       DealComment::store($request);
       Session::flash('message', 'Your comment has been submitted successfully.');
       return back();
+    }
+
+    public function dealVote(Request $request)
+    {
+      $dealvote = dealVote::firstOrNew( array('user_id' => Auth::user()->id, 'deal_id' => $request->id));
+      $dealvote->up = 0;
+      $dealvote->down = 0;
+       if($request->vote == 'like')
+       {
+           $dealvote->up = 1;
+       }
+       else {
+           $dealvote->down = 1;
+       }
+      $dealvote->user_id = Auth::user()->id;
+      $dealvote->deal_id = $request->id;
+      $dealvote->save();
+      return 'success';
     }
 }

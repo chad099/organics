@@ -68,7 +68,7 @@ display: inline-block;}
 .trending-text {color: #7AB82F;font-size: 18px; line-height: 36px;}
 .trending-button {text-align: center;padding-top: 57px;padding-bottom: 23px;}
 .featured-deals {display: table;content: "";clear: both;padding-top: 50px;}
-.deal {border: 1px solid #DBDBDB;border-radius: 9px; width: 146px; float: left;margin-right: 15px;}
+.deal {border: 1px solid #DBDBDB;border-radius: 9px;width: 146px;float: left;margin-right: 15px;}
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {background-color: transparent !important;}
 .website-name{text-align: right;color: rgb(188, 188, 188);padding-right: 10px;font-style: italic;font-family: Raleway-Regular;font-size: 10px;letter-spacing: 2px;}
 .deal-details {text-align: center;padding: 20px 0px;font-size: 12px;font-family: Raleway-Regular;}
@@ -80,7 +80,7 @@ display: inline-block;}
 .thumb img {margin-right: 7px;}
 .featured-deals :after{display: table;content: "";clear: both;}
 .right {margin-top: 94px;padding: 0px 50px;}
-form-class {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
+form {border: 1px solid rgb(215, 215, 215);padding: 30px 33px 30px 44px;margin-top: 50px;}
 input{border: none;border-bottom: 1px solid #bababa;padding-bottom: 20px;}
 .name {width: 220px;padding-top: 14px;font-weight: bold;font-family: Raleway-Regular;}
 .pwd  {width: 220px;padding-top: 14px;font-weight: bold;font-family: Raleway-Regular;}
@@ -247,13 +247,13 @@ form label{font-size: 13px;color: rgb(150, 150, 150);font-family: Raleway-Regula
 .badge2 img {float: left;margin-left: 6px;}
 .badge3 {background: linear-gradient(to right,#47bfd6,#3561be);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge3 img {float: left;margin-left: 6px;}
-.badge4 {background: linear-gradient(to right,#fe6868,#b93737);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge4 {background: linear-gradient(to right,#fe6868,#b93737);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge4 img {float: left;margin-left: 6px;}
-.badge5 {background: linear-gradient(to right,#ff9e68,#ff5d01);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge5 {background: linear-gradient(to right,#ff9e68,#ff5d01);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge5 img {float: left;margin-left: 6px;}
-.badge6 {background: linear-gradient(to right,#9de695,#7ab930);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge6 {background: linear-gradient(to right,#9de695,#7ab930);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge6 img {float: left;margin-left: 6px;}
-.badge7 {background: linear-gradient(to right,#ffd65b,#ffa64e);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;margin-top: 50px;}
+.badge7 {background: linear-gradient(to right,#ffd65b,#ffa64e);padding: 12px;border: none;border-radius: 25px;color: white;font-weight: bold;}
 .badge7 img {float: left;margin-left: 6px;}
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {height: 5px;border-top: 0;background: #c4e17f;border-radius: 5px;background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
@@ -302,8 +302,8 @@ span {margin-left: 11px;font-size: 16px;}
 .highlight-text {color:rgb(93, 93, 93);}
 .xbox-image{padding-top: 30px;}
 .small-text{font-size: 10px;color: rgb(131, 131, 131);}
-.like-image{width: 37px;}
-.dislike-image {margin-left: 10px;width: 120px;}
+.like-image{width: 37px; float:left;}
+.dislike-image {margin-left: 10px; width: 37px; float:left;z-index: 10;position: relative;}
 .heading3 {font-size: 24px;font-weight: bold;}
 .heading4{font-size: 16px;font-weight: bold;margin-left:15px;}
 .user-icon {float: left;}
@@ -472,7 +472,45 @@ span {
 .dots {
     margin: 3px;
 }
+.col-sm-3.empty-height::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+.dislike {
+    width: 100%;
+    max-width: 50%;
+    float: left;
+    border: 1px solid #f1f1f1;
+    margin-left: -4px;
+    font-size: 12px;
+    margin-top: 4px;
+    border-top-right-radius: 13px;
+    padding: 7px 12px;
+    z-index: 5;
+    border-bottom-right-radius: 13px;
+	color: #fe5e4b;
+}
 @media screen and (min-width:320px) and (max-width: 360px){
+
+.like-image{width: 37px; float:none !important;}
+.dislike-image {
+    margin-left: 10px;
+    width: 37px;
+    float: none !important;
+    z-index: 0 !important;
+    position: none !important;
+}
+.dislike {
+    border: 1px solid #ececec;
+    color: #ff5e4c;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
+	float:none !important;
+}
 .image1-text {
     color: white;
     padding-top: 20% !important;
@@ -534,6 +572,24 @@ ul.rtabs{
 	}
 
 @media screen and (min-width:361px) and (max-width: 768px){
+.like-image{width: 37px; float:none !important;}
+.dislike-image {
+    margin-left: 10px;
+    width: 37px;
+    float: none !important;
+    z-index: 0 !important;
+    position: none !important;
+}
+.dislike {
+    border: 1px solid #ececec;
+color: #ff5e4c;
+text-align: center;
+border-radius: 10px;
+width: 100%;
+max-width: 100% !important;
+margin: 0 auto;
+float: none !important;
+}
 	.image1-text {
     color: white;
     padding-top: 25% !important;
@@ -583,6 +639,24 @@ ul.rtabs{
 	}
 
 @media screen and (min-width:769px) and (max-width: 800px){
+	.like-image{width: 37px; float:none !important;}
+.dislike-image {
+    margin-left: 10px;
+    width: 37px;
+    float: none !important;
+    z-index: 0 !important;
+    position: none !important;
+}
+.dislike {
+    border: 1px solid #ececec;
+color: #ff5e4c;
+text-align: center;
+border-radius: 10px;
+width: 100%;
+max-width: 100% !important;
+margin: 0 auto;
+float: none !important;
+}
 	.image1-text {
     color: white;
     padding-top: 23% !important;
@@ -622,6 +696,24 @@ ul.rtabs{
 
 	}
 @media screen and (min-width:801px) and (max-width: 980px){
+	.like-image{width: 37px; float:none !important;}
+.dislike-image {
+    margin-left: 10px;
+    width: 37px;
+    float: none !important;
+    z-index: 0 !important;
+    position: none !important;
+}
+.dislike {
+    border: 1px solid #ececec;
+color: #ff5e4c;
+text-align: center;
+border-radius: 10px;
+width: 100%;
+max-width: 100% !important;
+margin: 0 auto;
+float: none !important;
+}
 	.image1-text {
     color: white;
     padding-top: 26% !important;
@@ -660,6 +752,24 @@ ul.rtabs{
 }
 	}
 @media screen and (min-width:981px) and (max-width: 1280px){
+	.like-image{width: 37px; float:none !important;}
+.dislike-image {
+    margin-left: 10px;
+    width: 37px;
+    float: none !important;
+    z-index: 0 !important;
+    position: none !important;
+}
+.dislike {
+    border: 1px solid #ececec;
+color: #ff5e4c;
+text-align: center;
+border-radius: 10px;
+width: 100%;
+max-width: 100% !important;
+margin: 0 auto;
+float: none !important;
+}
 	.image1-text {
     color: white;
     padding-top: 31% !important;
@@ -704,7 +814,13 @@ ul.rtabs{
 }
 	}
 
+@media screen and (min-width:1281px) and (max-width: 1334px){
 
+	.dislike {
+    width: 100%;
+    max-width: 54% !important;
+}
+	}
 /****************Profile page css Date 23-mar-2017***********************/
 .profile {
     font-size: 12px;
@@ -915,4 +1031,24 @@ ul.rtabs li.selected a {
 ul.rtabs li a:hover {
     color: azure !important;
     background: #74b736 !important;
+}
+.navbar-nav > li > a input[type=text] {
+    width: 0px;
+	font-size: 16px;
+	background-color: white;
+	background-image: url(images/search.png);
+	background-repeat: no-repeat;
+	padding: 0px 0px 0px 27px;
+	border: none;
+}
+.navbar-nav > li > a  input[type=text]:focus {
+    width: 100%;
+}
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+.fa:hover {
+  color: darkblue;
 }

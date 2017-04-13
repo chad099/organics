@@ -65,4 +65,10 @@ class Deal extends Model
             return $numberOfUnits.' '.$text.(($numberOfUnits>1)?'s':'');
         }
     }
+
+    public function upVoteCounts()
+    {
+      return $this->hasMany('App\DealVote', 'deal_id', 'id')->where('up', 1);
+    }
+
 }

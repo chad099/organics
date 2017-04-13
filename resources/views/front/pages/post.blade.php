@@ -26,15 +26,25 @@
     </br>
     </br>
     </br>
+    <div id="loader" style="display:none;"></div>
     <div class="row responsive-class">
       <div class="col-sm-4 empty-height">
-        <a href="#" class="see-deal">SEE DEAL</a>
+        <!-- <a href="#" class="see-deal">SEE DEAL</a> -->
       </div>
       <div class="col-sm-4 empty-height">
         <span class="small-text">If you purchase something through a post on our site, Organics may get a small share of the sale.</span>
       </div>
-      <div class="col-sm-4 empty-height">
-        <img src="/assets/front/images/social-icon.png"/>
+      <div class="col-sm-4 empty-height social-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/facbook.jpg"/>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/twiter.jpg"/>
+        </a>
+        <a href="https://plus.google.com/share?url={{ urlencode(Request::url()) }}">
+          <img src="/assets/front/images/google.jpg"/>
+        </a>
+        <a href="mailto:{{ env('APP_EMAIL') }}"><img src="/assets/front/images/mail.jpg"/></a>
       </div>
     </div>
     </br>
@@ -45,14 +55,26 @@
 
       <div class="col-sm-3 empty-height">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="vote_url" value="/post/vote" />
         @if(Auth::check())
-           <a href="javascript:void(0);" class="vote-btn see-deal like-image" data-id = "{{ $post->id }}" data-vote="like">Like</a>
-           <a href="javascript:void(0);" class="vote-btn see-deal dislike-image" data-id = "{{ $post->id }}" data-vote="dislike">Dislike</a>
+            <a href="javascript:void(0);" class="vote-btn" data-id = "{{ $post->id }}" data-vote="like">
+              <img class="like-image" src="/assets/front/images/like.png"/>
+            </a>
+            <a href="javascript:void(0);" class="vote-btn" data-id = "{{ $post->id }}" data-vote="dislike">
+              <img class="dislike-image" src="/assets/front/images/dislike-icon.jpg"/><p class="dislike">SO DISLIKE</p>
+            </a>
+        @else
+            <a href="javascript:void(0);" class="login-required">
+              <img class="like-image" src="/assets/front/images/like.png"/>
+            </a>
+            <a href="javascript:void(0);" class="login-required">
+              <img class="dislike-image" src="/assets/front/images/dislike-icon.jpg"/><p class="dislike">SO DISLIKE</p>
+            </a>
         @endif
-        <div class="li-btn">
+        <!-- <div class="li-btn">
         <span class="likecou">likes(<span id="likeShow">{{ count($post->likes) }}</span>)</span>
         <span class="likecou">dislikes(<span id="likeShow">{{ count($post->dislikes) }}</span>)</span>
-      </div>
+      </div> -->
         <!-- <img class="like-image" src="/assets/front/images/like.png"/>
         <img class="dislike-image" src="/assets/front/images/dislike.png"/> -->
       </div>
@@ -145,7 +167,9 @@
         <img src="/assets/front/images/buttons.jpg">
       </div>
       <div class="col-sm-6" style="text-align: right;">
-        <a href="#" class="see-deal">Reply</a>
+        @if(Auth::check())
+          <a href="#" class="see-deal">Reply</a>
+        @endif
       </div>
 
     </div>

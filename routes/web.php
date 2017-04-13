@@ -17,7 +17,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::resource('/', 'IndexController');
 Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
-
+    Route::post('profile/article', 'ProfileController@profileArticle');
     Route::resource('profile', 'ProfileController');
 });
 
@@ -67,6 +67,7 @@ Route::group(['prefix'=>'', 'middleware'=>['auth']], function() {
 });
 
 Route::group(['prefix'=>''], function() {
+  Route::post('deal/vote', 'DealController@dealVote');
   Route::post('deal/addcomment', 'DealController@addComment');
   Route::resource('deal', 'DealController');
 });
