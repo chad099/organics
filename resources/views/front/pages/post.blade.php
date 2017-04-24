@@ -164,7 +164,7 @@
     @endif
     <div class="row button-section">
       <div class="col-sm-6">
-        <img src="/assets/front/images/buttons.jpg">
+        
       </div>
       <div class="col-sm-6" style="text-align: right;">
         @if(Auth::check())

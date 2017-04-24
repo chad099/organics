@@ -29,7 +29,7 @@
              @if(count($posts) > 0)
               @foreach($posts as $post)
               <div class="count-img">
-                <img src="/assets/front/images/count.jpg" style="float:left;padding-right: 14px;">
+                <img class="count-up" src="/assets/front/images/count-up.png"><br><p class="text">{{ count($post->likes) }}</p><br><img class="count-down" src="/assets/front/images/count-down.png">
                 @if($post->thumbnail_image)
                   <img class="thumbnail-image" src="/assets/post/images/{{$post->thumbnail_image}}" style="float:left;padding-right: 14px">
                 @else
